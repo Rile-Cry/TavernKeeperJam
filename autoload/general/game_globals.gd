@@ -1,18 +1,21 @@
 extends Node
 
+#region Variables
+var _global_vars := {
+	"time": "00:00",
+	"fame": 0,
+	"days": 0,
+	"money": 0,
+}
+#endregion
+
 
 #region Physics layers
 const world_collision_layer: int = 1
-const player_collision_layer: int = 2
-const enemies_collision_layer: int = 4
-const hitboxes_collision_layer: int = 8
 const shakeables_collision_layer: int = 16
 const interactables_collision_layer: int = 32
-const grabbables_collision_layer: int = 64
-const bullets_collision_layer: int = 128
 const playing_cards_collision_layer: int = 256
 #endregion
-
 
 #region General helpers
 ## Example with lambda -> Utilities.delay_func(func(): print("test"), 1.5)
@@ -29,5 +32,13 @@ func delay_func(callable: Callable, time: float, deferred: bool = true):
 ## Example of use: await GameGlobals.wait(1.5)
 func wait(seconds:float = 1.0):
 	return get_tree().create_timer(seconds).timeout
-	
+
+func get_global_variable(key: String):
+	if _global_vars.has(key):
+		return _global_vars[key]
+	else:
+		push_warning("The key %s does not exist within the Global Variables" % key)
+
+func set_global_variable(key: String, value) -> void:
+	_global_vars[key] = value
 #endregion

@@ -35,8 +35,16 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"test_man": "res://components/dialog/characters/test_man.dch"
+}
+directories/dtl_directory={
+"test_timeline": "res://components/dialog/timelines/test_timeline.dtl"
+}
+variables={}
+layout/style_list=["res://components/dialog/test_style.tres"]
+layout/default_style="res://components/dialog/test_style.tres"
+glossary/default_case_sensitive=true
 
 [display]
 
@@ -48,7 +56,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/inkgd/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [file_customization]
 

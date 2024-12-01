@@ -1,0 +1,5 @@
+join test_man center
+test_man: Hello, it's a pleasure to meet you.
+test_man: I must tell you, however, that there is currently no game.
+test_man: None at all. So um... you should probably go.
+test_man: At least until there is a game.

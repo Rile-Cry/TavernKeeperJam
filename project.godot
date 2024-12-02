@@ -36,11 +36,14 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"test_man": "res://components/dialog/characters/test_man.dch"
+"felix_the_bold": "res://components/dialog/characters/felix_the_bold.dch",
+"hildegard_the_herbalist": "res://components/dialog/characters/hildegard_the_herbalist.dch",
+"mercy": "res://components/dialog/characters/mercy.dch",
+"old_lady_aga": "res://components/dialog/characters/old_lady_aga.dch",
+"valentine": "res://components/dialog/characters/valentine.dch",
+"ventura_the_fearless": "res://components/dialog/characters/ventura_the_fearless.dch"
 }
-directories/dtl_directory={
-"test_timeline": "res://components/dialog/timelines/test_timeline.dtl"
-}
+directories/dtl_directory={}
 variables={}
 layout/style_list=["res://components/dialog/test_style.tres"]
 layout/default_style="res://components/dialog/test_style.tres"

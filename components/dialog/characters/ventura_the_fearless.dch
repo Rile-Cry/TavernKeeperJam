@@ -6,11 +6,11 @@
 "custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "test_style"
+"style": ""
 },
 "default_portrait": "",
-"description": "",
-"display_name": "test_man",
+"description": "A real knight, snappy and gruff. She is frequently traveling throughout the kingdom to and from great quests.",
+"display_name": "Ventura",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),

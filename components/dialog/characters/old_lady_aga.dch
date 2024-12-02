@@ -1,0 +1,19 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+"default_portrait": "",
+"description": "Tavern owner, an old woman who once founded the tavern through passion alone, but has since let it fall into disrepair as she's aged. Tired, cynical, has been cheated before and won't let it happen again.",
+"display_name": "Old Lady Aga",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {},
+"scale": 1.0
+}

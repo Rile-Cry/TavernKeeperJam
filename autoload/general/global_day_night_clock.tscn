@@ -4,3 +4,6 @@
 
 [node name="GlobalDayNightClock" type="Node"]
 script = ExtResource("1_efcca")
+in_game_speed = 2.0
+initial_day = 1
+initial_hour = 8

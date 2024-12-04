@@ -1,0 +1,9 @@
+join old_lady_aga center
+do SoundPool.play("door.wav")
+old_lady_aga: What're you looking at?
+- You . . .
+	do SoundPool.play("chime.wav")
+	old_lady_aga: Bah, whatever.
+- No One
+	old_lady_aga: ...
+	do SoundPool.play("door.wav")

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfjfym5basaxr"]
+[gd_scene load_steps=4 format=3 uid="uid://dfjfym5basaxr"]
 
 [ext_resource type="Script" path="res://scenes/world/tavern/tavern_hub.gd" id="1_kcufq"]
+[ext_resource type="PackedScene" uid="uid://8r7o5us0isdn" path="res://scenes/world/tavern/bar.tscn" id="2_oaqpe"]
+[ext_resource type="PackedScene" uid="uid://jyonekm7ar5s" path="res://ui/menus/tavern/storage.tscn" id="3_l17om"]
 
 [node name="TavernHub" type="Control"]
 layout_mode = 3
@@ -11,7 +13,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kcufq")
 
+[node name="Bar" parent="." instance=ExtResource("2_oaqpe")]
+
 [node name="ActivityContainer" type="MarginContainer" parent="."]
+visibility_layer = 2
+z_index = 1
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
@@ -23,6 +29,7 @@ layout_mode = 2
 theme_override_constants/separation = 5
 
 [node name="Customers" type="Button" parent="ActivityContainer/VBoxContainer"]
+z_index = 10
 layout_mode = 2
 text = "Talk to Customers
 "
@@ -44,6 +51,7 @@ layout_mode = 2
 text = "Close Up for the Day"
 
 [node name="StatContainer" type="MarginContainer" parent="."]
+z_index = 1
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
 anchors_preset = 1
@@ -73,3 +81,7 @@ text = "Fame:"
 [node name="Money" type="Label" parent="StatContainer/VBoxContainer"]
 layout_mode = 2
 text = "Money:"
+
+[node name="Storage" parent="." instance=ExtResource("3_l17om")]
+visible = false
+layout_mode = 1

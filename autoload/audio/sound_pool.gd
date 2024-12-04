@@ -26,8 +26,13 @@ func setup_pool():
 		add_child(stream_player)
 
 
-func play(stream: AudioStream, bus: String = "SFX", volume: float = 1.0):
-	if _bus_is_valid(bus):
+func play(stream_name: String, bus: String = "SFX", volume: float = 1.0):
+	var address = "res://assets/audio/sfx/" + stream_name
+	var stream : AudioStream
+	if ResourceLoader.exists(address):
+		stream = ResourceLoader.load(address, "AudioStream")
+		
+	if _bus_is_valid(bus) and stream != null:
 		var available_stream_player = _next_available_stream_player()
 		
 		if available_stream_player:

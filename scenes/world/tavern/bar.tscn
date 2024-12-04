@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://8r7o5us0isdn"]
+
+[ext_resource type="Texture2D" uid="uid://dedpkyw0mcy3g" path="res://assets/backgrounds/bar/barcounter_background.PNG" id="1_jib4d"]
+[ext_resource type="Script" path="res://scenes/world/tavern/bar.gd" id="1_oh44y"]
+[ext_resource type="Texture2D" uid="uid://chh6pf4uh5fvt" path="res://assets/backgrounds/bar/barcounter.PNG" id="2_uhnno"]
+[ext_resource type="Texture2D" uid="uid://dxyco5vjklygk" path="res://assets/backgrounds/bar/border.PNG" id="3_lilfa"]
+
+[node name="Bar" type="Node"]
+script = ExtResource("1_oh44y")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jib4d")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Counter" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uhnno")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Border" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lilfa")
+expand_mode = 2
+stretch_mode = 4

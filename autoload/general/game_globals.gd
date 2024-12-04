@@ -2,10 +2,18 @@ extends Node
 
 #region Variables
 var _global_vars := {
-	"time": "00:00",
+	"time": "08:00 AM",
 	"fame": 0,
-	"days": 0,
+	"days": 1,
 	"money": 0,
+	"name": "",
+}
+var _stock := {
+	"Hartroot": 10
+}
+
+var event_check := {
+	"tutorial" = false
 }
 #endregion
 
@@ -41,4 +49,23 @@ func get_global_variable(key: String):
 
 func set_global_variable(key: String, value) -> void:
 	_global_vars[key] = value
+
+func get_stock() -> Dictionary:
+	return _stock
+
+func get_stock_count(item: String) -> int:
+	if _stock.has(item):
+		return _stock[item]
+	else:
+		push_warning("The item %s does not exist within the stock" % item)
+		return 0
+
+func add_stock(item: String, value: int) -> void:
+	if _stock.has(item):
+		if _stock[item] == 999 or _stock[item] + value >= 999:
+			pass
+		else:
+			_stock[item] += value
+	else:
+		_stock[item] = value
 #endregion

@@ -1,0 +1,226 @@
+[gd_scene load_steps=21 format=3 uid="uid://bfi28jisx373r"]
+
+[ext_resource type="Texture2D" uid="uid://b5rvn44r1a7t7" path="res://assets/backgrounds/barcounter_background.PNG" id="1_6y1xs"]
+[ext_resource type="Texture2D" uid="uid://br3355xqnwqvm" path="res://assets/backgrounds/day_lighting/day_2_screen_5percent.PNG" id="1_c1l4j"]
+[ext_resource type="Texture2D" uid="uid://ch3867lm2ofpv" path="res://assets/backgrounds/barcounter.PNG" id="2_44wrj"]
+[ext_resource type="Texture2D" uid="uid://butl7f1vyv5j5" path="res://assets/backgrounds/day_lighting/day_1_add_60percent.PNG" id="4_ryjk1"]
+[ext_resource type="Texture2D" uid="uid://c60wnpj18gkv5" path="res://assets/backgrounds/evening_lighting/evening_1_add_60percent.PNG" id="5_0baaw"]
+[ext_resource type="Texture2D" uid="uid://bqcv5atrwjce1" path="res://assets/backgrounds/evening_lighting/evening_2_lightercolor_5percent.PNG" id="5_8es8a"]
+[ext_resource type="Texture2D" uid="uid://df83dth21ahgl" path="res://assets/backgrounds/border.PNG" id="6_jg7i6"]
+[ext_resource type="Texture2D" uid="uid://di0jsvn7gcrw" path="res://assets/backgrounds/night_lighting/night_1_add_85percent.PNG" id="7_lbp3o"]
+[ext_resource type="Texture2D" uid="uid://q61ips01hi66" path="res://assets/backgrounds/night_lighting/night_2_lightercolor_25percent.PNG" id="8_mnb7x"]
+[ext_resource type="Texture2D" uid="uid://n5p60ynjnr5m" path="res://assets/backgrounds/night_lighting/night_3_multiply_25percent.PNG" id="9_mi71u"]
+[ext_resource type="Texture2D" uid="uid://d4l1s1kb4m42g" path="res://assets/character_sprites/aga/aga_talk.PNG" id="11_1w5fg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lyaor"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yeavu"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fps8c"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jtq3l"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wrbg0"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xsrgc"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_yusbq"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8cqub"]
+gradient = SubResource("Gradient_yusbq")
+fill_from = Vector2(0.474359, 0.179487)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s54h0"]
+blend_mode = 3
+
+[node name="BackgroundScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BarCounterBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6y1xs")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Characters" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Aga" type="TextureRect" parent="Characters"]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 147.0
+offset_right = 3507.0
+offset_bottom = 4245.0
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("11_1w5fg")
+
+[node name="BarCounter" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_44wrj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Day" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DayScreen" type="TextureRect" parent="Day"]
+modulate = Color(1, 1, 1, 0.05)
+material = SubResource("CanvasItemMaterial_lyaor")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c1l4j")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="DayAdd" type="TextureRect" parent="Day"]
+modulate = Color(1, 1, 1, 0.6)
+material = SubResource("CanvasItemMaterial_yeavu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ryjk1")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Evening" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EveningLighterColor" type="TextureRect" parent="Evening"]
+modulate = Color(1, 1, 1, 0.05)
+material = SubResource("CanvasItemMaterial_fps8c")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_8es8a")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="EveningAdd" type="TextureRect" parent="Evening"]
+modulate = Color(1, 1, 1, 0.6)
+material = SubResource("CanvasItemMaterial_jtq3l")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_0baaw")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Night" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NightAdd" type="TextureRect" parent="Night"]
+modulate = Color(1, 1, 1, 0.85)
+material = SubResource("CanvasItemMaterial_wrbg0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_lbp3o")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NightLighterColor" type="TextureRect" parent="Night"]
+modulate = Color(1, 1, 1, 0.25)
+material = SubResource("CanvasItemMaterial_xsrgc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_mnb7x")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Darkness" type="PointLight2D" parent="Night"]
+position = Vector2(613, 390.5)
+scale = Vector2(29.1875, 17.9531)
+color = Color(1, 1, 1, 0.319)
+blend_mode = 1
+texture = SubResource("GradientTexture2D_8cqub")
+
+[node name="BlueLight" type="PointLight2D" parent="Night"]
+position = Vector2(661, 409)
+scale = Vector2(17.875, 13.5)
+color = Color(1, 1, 1, 0.36)
+texture = ExtResource("9_mi71u")
+
+[node name="NightMultiply" type="TextureRect" parent="Night"]
+visible = false
+material = SubResource("CanvasItemMaterial_s54h0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_mi71u")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Border" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_jg7i6")
+expand_mode = 2
+stretch_mode = 4

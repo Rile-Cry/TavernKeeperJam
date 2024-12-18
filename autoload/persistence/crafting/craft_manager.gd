@@ -6,6 +6,21 @@ var recipes := {}
 var _ingredient_path := "res://components/crafting/items"
 var _recipe_path := "res://components/crafting/recipes"
 
+
+func craft(ingredient_list: Array[String], process: TavernItem.PROCESS_TYPE) -> TavernItem:
+	var craft_list := []
+	for ingredient in ingredient_list:
+		craft_list.append(ingredients[ingredient])
+	return _recipe_check(craft_list, process).result
+
+
+func _recipe_check(ingredient_list: Array[TavernItem], process: TavernItem.PROCESS_TYPE) -> TavernRecipe:
+	for recipe in recipes:
+		if recipes[recipe].process_method == process:
+			if recipes[recipe].ingredients.has_all(ingredient_list) and recipes[recipe].ingredients.size() == ingredient_list.size():
+				return recipe
+	return null
+
 func _load_ingredients() -> void:
 	var temp_ingredients := _load_dir(_ingredient_path)
 	for ingredient in temp_ingredients:

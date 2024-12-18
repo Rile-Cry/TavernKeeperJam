@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TavernRecipe" load_steps=5 format=3 uid="uid://bnb021p02mp82"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_ssls2"]
+[ext_resource type="Resource" uid="uid://duugb37i2hwiq" path="res://components/crafting/items/ingredients/hartroot.tres" id="2_571fd"]
+[ext_resource type="Script" path="res://components/crafting/scripts/recipe_resource.gd" id="2_vxikx"]
+[ext_resource type="Resource" uid="uid://cior4lalskl15" path="res://components/crafting/items/chopped_items/chopped_hartroot.tres" id="3_1w6xw"]
+
+[resource]
+script = ExtResource("2_vxikx")
+ingredients = Array[ExtResource("1_ssls2")]([ExtResource("2_571fd")])
+process_method = 0
+result = ExtResource("3_1w6xw")

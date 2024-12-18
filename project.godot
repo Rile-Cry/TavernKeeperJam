@@ -47,10 +47,15 @@ directories/dch_directory={
 "ventura_the_fearless": "res://components/dialog/characters/ventura_the_fearless.dch"
 }
 directories/dtl_directory={
-"sound_example": "res://components/dialog/timelines/sound_example.dtl",
+"day_1": "res://components/dialog/timelines/day_1.dtl",
 "tutorial": "res://components/dialog/timelines/tutorial.dtl"
 }
 variables={
+"DAYS": {
+"FelixDrink": false,
+"One": true
+},
+"FelixName": "Scruffy Adventurer",
 "PlayerName": ""
 }
 layout/style_list=["res://components/dialog/test_style.tres"]

@@ -1,0 +1,42 @@
+if {DAYS.One} == true:
+	jump start
+elif {DAYS.FelixDrink} == true:
+	jump felix_drink
+else:
+	jump end
+label start
+[i]Voices, sof as rustling pages. Faint, they fade in and out of being. They're gone as quickly as they came.[/i]
+[i]You awaken from shallow, half-forgotten dreams.[/i]
+player: I'm on my own today.
+join felix_the_bold (smile) center
+felix_the_bold: Good bartend, give me an ale for the road! I have many a daring exploit ahead of me, and I could use some liquid courage!
+- Daring exploits?
+felix_the_bold: The [b]MOST[/b] daring! For I am Felix the Bold, knight-to-be, valiant and most courageous quest seeker.
+set {FelixName} = "Felix the Bold"
+felix_the_bold: I have taken the liberty to give myself the knightly title, of course.
+felix_the_bold: Today I shall fend off the vivious hedgehogs plaguing Mrs. Flether's garden -- well, that's nothing to scoff at! The quest [i]sounds[/i] deceptively easy, but is in truth filled with peril and grave tribulations.
+felix_the_bold: Eh, anyways . . . um . . . what was I saying? Oh yeah! An ale, please!
+[end_timeline]
+label felix_drink
+join felix_the_bold (smile) center
+felix_the_bold: Ahh, that hits the spot! There's nothing like a good drink to get the strength running through your veins again!
+player: --is that so?
+felix_the_bold: Well, that's how it feels to me, at least! A drink, or two . . . or three . . . always makes me feel like I could take on anything!
+player: Huh. I suppose it could.
+felix_the_bold: You've got a real odd look on your face.
+player: Oh, it's just . . . you reminded me of something.
+player: [i]Ahem.[/i] I really shouldn't keep you any longer. Good luck with the, um, hedgehogs.
+felix_the_bold: Ah, yes! Hedgehogs! You have my gratitude, good bartend! [i]Excelsior[/i], and until we meet again!
+leave felix_the_bold
+player: . . . I have an idea.
+set {DAYS.FelixDrink} = false
+[end_timeline]
+label end
+player: Something that Felix said today reminded me of . . . 
+- Retrieve the pouch
+player: . . . My old supplies. I think I've still got some ingredients left.
+player: Some dried fortiflower petals . . . hartroot . . . firepepper seeds . . . This should be more than enough.
+player: My old notes are here, too. Could I really make this work?
+player: It'll take some experimentation. Maybe tonight, I can sneak downstairs and . . .
+player: Oh, what am I saying? Sutpid idea. It would only be a distraction--and there's too much at risk.
+player: maybe it's time I put this all behind me.

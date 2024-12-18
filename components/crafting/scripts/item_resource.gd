@@ -1,6 +1,6 @@
-class_name Ingredient extends Resource
+class_name TavernItem extends Resource
 
-enum ProcessTypes {
+enum PROCESS_TYPE {
 	CHOPPING,
 	BOILING,
 	GRINDING,
@@ -11,6 +11,7 @@ enum ProcessTypes {
 @export var ingredient_name: String
 @export var texture: Texture2D
 @export var cost: int
+@export var quality: int
 @export var description: String
-@export var processing: Array[ProcessTypes]
+@export var processing: Array[PROCESS_TYPE]
 @export var fame_required: int

@@ -33,6 +33,7 @@ SaveManager="*res://autoload/persistence/save/save_manager.gd"
 SettingsManager="*res://autoload/persistence/settings/settings_manager.gd"
 GlobalDayNightClock="*res://autoload/general/global_day_night_clock.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+CraftManager="*res://autoload/persistence/crafting/craft_manager.gd"
 
 [dialogic]
 

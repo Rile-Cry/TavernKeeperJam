@@ -7,4 +7,4 @@ func _ready() -> void:
 
 
 func _button_pressed() -> void:
-	auto_pressed.emit(name)
+	auto_pressed.emit(text)

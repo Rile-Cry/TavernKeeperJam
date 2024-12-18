@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://duugb37i2hwiq"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_5mpfg"]
+
+[resource]
+script = ExtResource("1_5mpfg")
+ingredient_name = "Hartroot"
+cost = 0
+description = "Healing plant"
+processing = Array[int]([0, 2])
+fame_required = 0

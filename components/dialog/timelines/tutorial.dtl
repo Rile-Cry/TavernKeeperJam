@@ -17,7 +17,7 @@ label FirstChoice
 	player: I can see the farmers already at work in their fields, but there's not many other out and about yet.
 	jump FirstChoice
 - Get dressed and go downstairs
-join old_lady_aga center
+join old_lady_aga (talk) center
 old_lady_aga: Ah, awake? Good. See that you continue to be punctual. I would rather not have to fetch you myself. My old knees can only take me up those stairs so many times.
 old_lady_aga: We open at noon, so there's no time to waste. Today I will show you how to tend the bar, and tomorrow I expect you to manage on your own.
 old_lady_aga: Well? You look as if you have a question.

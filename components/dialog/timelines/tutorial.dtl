@@ -1,0 +1,43 @@
+[i]Water trickles over rounded stones. Thistle buds poke up through the mud.[/i]
+[i]Voices, soft as the murmuring creek. You strain your ears, but they're gone as quickly as they came.[/i]
+[i]Clinking glass. The roar of a fire as it feeds from a bellows.[/i]
+[i]A strong, earthy scent. The heat from the flames intensifies. You can feel it on your face -- the glow and the warmth at once.[/i]
+[i]It's a pleasant feeling -- comforting, beckoning you closer.[/i]
+[i]Then it starts to burn.[/i]
+player: ... Where am I?
+player: Oh. I'd nearly forgotten.
+player: It's early. But I ought to find Old Lady Aga. She said she'd be expecting me downstairs.
+label FirstChoice
+- Unpack your keepsakes
+	player: A bracelet braided from leather cord. Eda made it for me.
+	player: My old book of fables... my empty coin purse... the key to the latch on my family's house... and a pouch of--
+	player: ... I should leave it be.
+	jump FirstChoice
+- Look out the window
+	player: I can see the farmers already at work in their fields, but there's not many other out and about yet.
+	jump FirstChoice
+- Get dressed and go downstairs
+join old_lady_aga (talk) center
+old_lady_aga: Ah, awake? Good. See that you continue to be punctual. I would rather not have to fetch you myself. My old knees can only take me up those stairs so many times.
+old_lady_aga: We open at noon, so there's no time to waste. Today I will show you how to tend the bar, and tomorrow I expect you to manage on your own.
+old_lady_aga: Well? You look as if you have a question.
+label AgaQuestions
+- What about breakfast?
+	old_lady_aga: ... Breakfast?
+	player: You said you'd provide food and lodgings while I worked.
+	old_lady_aga: Is that so . . . ? Well, sounds just like the kind of foolish thing I would promise.
+	old_lady_aga: Very well. You may take from my pantry at mealtimes. I shall not go to any extra lengths to stock it, however. Anything you find lacking, you may supply.
+	old_lady_aga: Anything else?
+	jump AgaQuestions
+- When will I get paid?
+	old_lady_aga: I will give you your earnings at the end of each week. The money taken in by selling drinks is NOT yours to keep. Every coin must go through my hands before it is paid into yours.
+	old_lady_aga: Many fools have attempted to cheat me over the years. I trust you would not be so careless with your current lodgings as to join their ranks.
+	old_lady_aga: Anything else?
+	jump AgaQuestions
+- Will you be helping with the tavern too?
+	old_lady_aga: Hah! Helping!? Even if these old bones allowed for it, why should I? That's what I'm paying you for, hm?
+	old_lady_aga: Anyways, I have my own work to tend to. My husband left his affairs in a state of sordid disarray when he passed -- as he did while living, lord knows. The tavern kept me busy enough that I never got around to sorting through them.
+	old_lady_aga: Should you need me, I'll be close at hand, but you should be able to manage quite fine on your own. We don't see many visitors these days.
+	old_lady_aga: Anyways. Anything else?
+	jump AgaQuestions
+- No, I'm ready to get started.

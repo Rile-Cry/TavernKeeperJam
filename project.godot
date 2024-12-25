@@ -31,7 +31,9 @@ SceneTransitionManager="*res://autoload/scenes/scene_transition_manager.tscn"
 GlobalEffects="*res://autoload/effects/global_effects.tscn"
 SaveManager="*res://autoload/persistence/save/save_manager.gd"
 SettingsManager="*res://autoload/persistence/settings/settings_manager.gd"
+GlobalDayNightClock="*res://autoload/general/global_day_night_clock.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+CraftManager="*res://autoload/persistence/crafting/craft_manager.gd"
 
 [dialogic]
 
@@ -40,14 +42,46 @@ directories/dch_directory={
 "hildegard_the_herbalist": "res://components/dialog/characters/hildegard_the_herbalist.dch",
 "mercy": "res://components/dialog/characters/mercy.dch",
 "old_lady_aga": "res://components/dialog/characters/old_lady_aga.dch",
+"player": "res://components/dialog/characters/player.dch",
 "valentine": "res://components/dialog/characters/valentine.dch",
 "ventura_the_fearless": "res://components/dialog/characters/ventura_the_fearless.dch"
 }
-directories/dtl_directory={}
-variables={}
+directories/dtl_directory={
+"day_1": "res://components/dialog/timelines/day_1.dtl",
+"tutorial": "res://components/dialog/timelines/tutorial.dtl"
+}
+variables={
+"DAYS": {
+"FelixDrink": false,
+"One": true
+},
+"FelixName": "Scruffy Adventurer",
+"PlayerName": ""
+}
 layout/style_list=["res://components/dialog/test_style.tres"]
 layout/default_style="res://components/dialog/test_style.tres"
 glossary/default_case_sensitive=true
+extensions_folder="res://addons/dialogic_additions"
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+audio/max_channels=4.0
+animations/join_default_length=0.5
+animations/join_default_wait=true
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/cross_fade_default_length=0.5
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+audio/type_sound_bus="SFX"
+text/autopauses={}
 
 [display]
 

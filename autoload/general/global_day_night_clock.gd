@@ -27,6 +27,7 @@ var current_period: String = "AM"
 var current_day: int = 0
 var current_hour: int = 0
 var current_minute: int = 0
+var running = false
 
 
 func _ready() -> void:
@@ -54,10 +55,12 @@ func start(day: int = initial_day, hour: int = initial_hour, minute: int = initi
 	time = InGameToRealMinuteDuration * MinutesPerHour * current_hour
 	
 	set_process(true)
+	running = true
 
 
 func stop() -> void:
 	set_process(false)
+	running = false
 
 
 func change_day_to(new_day: int) -> void:
@@ -85,4 +88,19 @@ func _recalculate_time() -> void:
 		
 		current_period = "AM" if current_hour < 12 else "PM"
 		
-		time_tick.emit(current_day, current_hour, current_minute)
+		if (current_minute - 1) % 5 == 0:
+			time_tick.emit(current_day, current_hour, current_minute)
+	
+	# Set globals
+	GameGlobals.set_global_variable("day", current_day)
+	var time_string := ""
+	if current_minute < 10:
+		time_string = "0%s" % current_minute
+	else:
+		time_string = str(current_minute)
+	var hour : int = current_hour if current_hour < 13 else current_hour - 12
+	GameGlobals.set_global_variable("time", "%s:%s %s" % [hour, time_string, current_period])
+	
+	# Stop on specific times
+	if current_hour == 21:
+		stop()

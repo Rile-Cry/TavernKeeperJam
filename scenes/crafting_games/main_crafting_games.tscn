@@ -1,0 +1,212 @@
+[gd_scene load_steps=17 format=3 uid="uid://dlij03dqyy1co"]
+
+[ext_resource type="Texture2D" uid="uid://bs6aekthjg2k5" path="res://assets/backgrounds/drinkcounter_background.PNG" id="1_1pwch"]
+[ext_resource type="Texture2D" uid="uid://bb1fm5183etor" path="res://assets/drink_craft_assets/ale_barrel.PNG" id="2_05kiw"]
+[ext_resource type="Texture2D" uid="uid://d1gi7ep7rygxm" path="res://assets/drink_craft_assets/beer_barrel.PNG" id="3_17er5"]
+[ext_resource type="Texture2D" uid="uid://bjluhybp3h8lw" path="res://assets/drink_craft_assets/cider_shelf.PNG" id="4_5toon"]
+[ext_resource type="Texture2D" uid="uid://c4o1ag82yb5hs" path="res://assets/drink_craft_assets/gin_shelf.PNG" id="5_q2434"]
+[ext_resource type="Texture2D" uid="uid://bbjct5owv1ab8" path="res://assets/drink_craft_assets/glass_shelf.PNG" id="6_ayeet"]
+[ext_resource type="Texture2D" uid="uid://drvxuw68q3im1" path="res://assets/drink_craft_assets/ingredient_cloth.PNG" id="7_w2bkc"]
+[ext_resource type="Texture2D" uid="uid://dnx7f4e4f8oh" path="res://assets/drink_craft_assets/knife.PNG" id="8_dkrnd"]
+[ext_resource type="Texture2D" uid="uid://bum2sufoif57r" path="res://assets/drink_craft_assets/mortarpestle.PNG" id="9_4mhng"]
+[ext_resource type="Texture2D" uid="uid://dsu8lgs4pjj4l" path="res://assets/drink_craft_assets/notecard.PNG" id="10_866yr"]
+[ext_resource type="Texture2D" uid="uid://c4vyg5601pdfs" path="res://assets/drink_craft_assets/tankard_shelf.PNG" id="11_lluqo"]
+[ext_resource type="Texture2D" uid="uid://dtw0cv54o7r1d" path="res://assets/drink_craft_assets/wineglass_shelf.PNG" id="12_ossib"]
+[ext_resource type="Texture2D" uid="uid://dsdpwwsj14hu1" path="res://assets/drink_craft_assets/wine_shelf.PNG" id="13_h82hv"]
+[ext_resource type="Texture2D" uid="uid://dfyk6yy7pdee" path="res://assets/drink_craft_assets/plain_drinks/glass_top.PNG" id="14_ypij5"]
+[ext_resource type="Texture2D" uid="uid://erai70r783sb" path="res://assets/drink_craft_assets/plain_drinks/wineglass_top.PNG" id="15_oploh"]
+[ext_resource type="Texture2D" uid="uid://elkbb7d8dp0e" path="res://assets/drink_craft_assets/plain_drinks/tankard_top.PNG" id="16_kt7r6"]
+
+[node name="MainCraftingGames" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DrinkCounter" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1pwch")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="AleBarrel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_05kiw")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="BeerBarrel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_17er5")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="CiderShelf" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_5toon")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="GinShelf" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_q2434")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="GlassShelf" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ayeet")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="IngredientCloth" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_w2bkc")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Knife" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_dkrnd")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MortarPestle" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_4mhng")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Notecard" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_866yr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="TankardShelf" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_lluqo")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="WineglassShelf" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ossib")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="WineShelf" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_h82hv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Items" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GlassTop" type="TextureRect" parent="Items"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_ypij5")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="WineGlass" type="TextureRect" parent="Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_oploh")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="TankardTop" type="TextureRect" parent="Items"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_kt7r6")
+expand_mode = 2
+stretch_mode = 4

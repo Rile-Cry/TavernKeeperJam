@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bfi28jisx373r"]
+[gd_scene load_steps=24 format=3 uid="uid://bfi28jisx373r"]
 
 [ext_resource type="Texture2D" uid="uid://b5rvn44r1a7t7" path="res://assets/backgrounds/barcounter_background.PNG" id="1_6y1xs"]
 [ext_resource type="Texture2D" uid="uid://br3355xqnwqvm" path="res://assets/backgrounds/day_lighting/day_2_screen_5percent.PNG" id="1_c1l4j"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://di0jsvn7gcrw" path="res://assets/backgrounds/night_lighting/night_1_add_85percent.PNG" id="7_lbp3o"]
 [ext_resource type="Texture2D" uid="uid://q61ips01hi66" path="res://assets/backgrounds/night_lighting/night_2_lightercolor_25percent.PNG" id="8_mnb7x"]
 [ext_resource type="Texture2D" uid="uid://n5p60ynjnr5m" path="res://assets/backgrounds/night_lighting/night_3_multiply_25percent.PNG" id="9_mi71u"]
-[ext_resource type="Texture2D" uid="uid://d4l1s1kb4m42g" path="res://assets/character_sprites/aga/aga_talk.PNG" id="11_1w5fg"]
+[ext_resource type="Texture2D" uid="uid://blloebq63vfh7" path="res://assets/character_sprites/aga/aga_talk.PNG" id="11_1w5fg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lyaor"]
 blend_mode = 1
@@ -171,44 +171,6 @@ tracks/4/keys = {
 _data = {
 "DayTransition": SubResource("Animation_vmcy7"),
 "RESET": SubResource("Animation_4uqwe")
-}
-
-[sub_resource type="Animation" id="Animation_kuqg0"]
-resource_name = "aga_jumping"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Characters/Aga:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.25, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(435, 147), Vector2(435, 122), Vector2(435, 147)]
-}
-
-[sub_resource type="Animation" id="Animation_4oyky"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Characters/Aga:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(435, 147)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1um7e"]
-_data = {
-"RESET": SubResource("Animation_4oyky"),
-"aga_jumping": SubResource("Animation_kuqg0")
 }
 
 [node name="BackgroundScene" type="Control"]
@@ -401,9 +363,3 @@ libraries = {
 "": SubResource("AnimationLibrary_a8nb3")
 }
 autoplay = "DayTransition"
-
-[node name="AnimationPlayerAga" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_1um7e")
-}
-autoplay = "aga_jumping"

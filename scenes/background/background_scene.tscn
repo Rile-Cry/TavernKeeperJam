@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bfi28jisx373r"]
+[gd_scene load_steps=31 format=3 uid="uid://bfi28jisx373r"]
 
 [ext_resource type="Texture2D" uid="uid://b5rvn44r1a7t7" path="res://assets/backgrounds/barcounter_background.PNG" id="1_6y1xs"]
 [ext_resource type="Texture2D" uid="uid://br3355xqnwqvm" path="res://assets/backgrounds/day_lighting/day_2_screen_5percent.PNG" id="1_c1l4j"]
@@ -10,7 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://di0jsvn7gcrw" path="res://assets/backgrounds/night_lighting/night_1_add_85percent.PNG" id="7_lbp3o"]
 [ext_resource type="Texture2D" uid="uid://q61ips01hi66" path="res://assets/backgrounds/night_lighting/night_2_lightercolor_25percent.PNG" id="8_mnb7x"]
 [ext_resource type="Texture2D" uid="uid://n5p60ynjnr5m" path="res://assets/backgrounds/night_lighting/night_3_multiply_25percent.PNG" id="9_mi71u"]
-[ext_resource type="Texture2D" uid="uid://blloebq63vfh7" path="res://assets/character_sprites/aga/aga_talk.PNG" id="11_1w5fg"]
+[ext_resource type="Script" path="res://scenes/background/queue_manager.gd" id="11_o8uod"]
+[ext_resource type="Script" path="res://scenes/background/button.gd" id="11_ow2to"]
+[ext_resource type="Script" path="res://scenes/background/button_2.gd" id="11_u452s"]
+[ext_resource type="Script" path="res://scenes/background/game_manager.gd" id="12_wtpik"]
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="13_fgn81"]
+[ext_resource type="Resource" uid="uid://cior4lalskl15" path="res://components/crafting/items/chopped_items/chopped_hartroot.tres" id="14_hw4tw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lyaor"]
 blend_mode = 1
@@ -173,6 +178,24 @@ _data = {
 "RESET": SubResource("Animation_4uqwe")
 }
 
+[sub_resource type="Resource" id="Resource_tv04g"]
+script = ExtResource("13_fgn81")
+ingredient_name = "Banana"
+cost = 0
+quality = 0
+description = ""
+processing = Array[int]([])
+fame_required = 0
+
+[sub_resource type="Resource" id="Resource_cex2u"]
+script = ExtResource("13_fgn81")
+ingredient_name = "Banana"
+cost = 0
+quality = 0
+description = ""
+processing = Array[int]([])
+fame_required = 0
+
 [node name="BackgroundScene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -196,15 +219,7 @@ stretch_mode = 4
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Aga" type="TextureRect" parent="Characters"]
-layout_mode = 0
-offset_left = 435.0
-offset_top = 147.0
-offset_right = 3507.0
-offset_bottom = 4245.0
-scale = Vector2(0.13, 0.13)
-texture = ExtResource("11_1w5fg")
+mouse_filter = 1
 
 [node name="BarCounter" type="TextureRect" parent="."]
 layout_mode = 1
@@ -225,6 +240,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="DayScreen" type="TextureRect" parent="Day"]
 modulate = Color(1, 1, 1, 0.05)
@@ -260,6 +276,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="EveningLighterColor" type="TextureRect" parent="Evening"]
 modulate = Color(1, 1, 1, 0.05)
@@ -294,6 +311,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="NightAdd" type="TextureRect" parent="Night"]
 modulate = Color(1, 1, 1, 0.85)
@@ -358,8 +376,62 @@ texture = ExtResource("6_jg7i6")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="TimeTransitions" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_a8nb3")
 }
-autoplay = "DayTransition"
+
+[node name="Debug" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="Debug"]
+offset_left = 910.0
+offset_top = 171.0
+offset_right = 1049.0
+offset_bottom = 202.0
+text = "give hartroot"
+script = ExtResource("11_ow2to")
+item = ExtResource("14_hw4tw")
+
+[node name="Button3" type="Button" parent="Debug"]
+offset_left = 921.0
+offset_top = 112.0
+offset_right = 1062.0
+offset_bottom = 143.0
+text = "give banana item"
+script = ExtResource("11_ow2to")
+item = SubResource("Resource_tv04g")
+
+[node name="Button2" type="Button" parent="Debug"]
+offset_left = 1015.0
+offset_top = 250.0
+offset_right = 1162.0
+offset_bottom = 281.0
+text = "start queue signal"
+script = ExtResource("11_u452s")
+
+[node name="QueueManager" type="Node" parent="."]
+script = ExtResource("11_o8uod")
+npc_amount = 3
+available_dishes = Array[ExtResource("13_fgn81")]([ExtResource("14_hw4tw"), SubResource("Resource_cex2u")])
+
+[node name="GameManager" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("12_wtpik")
+
+[node name="Label" type="Label" parent="GameManager"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 10.0
+offset_right = 215.0
+offset_bottom = 33.0
+text = "Remaining customers: -1"
+
+[connection signal="pressed" from="Debug/Button" to="Debug/Button" method="_on_pressed"]
+[connection signal="pressed" from="Debug/Button3" to="Debug/Button3" method="_on_pressed"]
+[connection signal="pressed" from="Debug/Button2" to="Debug/Button2" method="_on_pressed"]

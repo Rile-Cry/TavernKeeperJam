@@ -34,6 +34,7 @@ SettingsManager="*res://autoload/persistence/settings/settings_manager.gd"
 GlobalDayNightClock="*res://autoload/general/global_day_night_clock.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 CraftManager="*res://autoload/persistence/crafting/craft_manager.gd"
+EventBus="*res://autoload/event_bus/event_bus.gd"
 
 [dialogic]
 

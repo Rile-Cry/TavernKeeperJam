@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4cgs1eioycvy"]
+
+[ext_resource type="Script" path="res://npc_customer.gd" id="1_1c6ue"]
+[ext_resource type="Texture2D" uid="uid://chvdkwlyyqk6e" path="res://assets/character_sprites/crypticwanderer.PNG" id="2_eb61c"]
+
+[node name="NpcCustomer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1c6ue")
+
+[node name="Npc" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("2_eb61c")

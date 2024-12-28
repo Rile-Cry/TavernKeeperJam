@@ -16,18 +16,18 @@
 [ext_resource type="Texture2D" uid="uid://dtw0cv54o7r1d" path="res://assets/drink_craft_assets/wineglass_shelf.PNG" id="12_ossib"]
 [ext_resource type="Texture2D" uid="uid://dsdpwwsj14hu1" path="res://assets/drink_craft_assets/wine_shelf.PNG" id="13_h82hv"]
 [ext_resource type="Texture2D" uid="uid://dfyk6yy7pdee" path="res://assets/drink_craft_assets/plain_drinks/glass_top.PNG" id="14_ypij5"]
-[ext_resource type="Texture2D" uid="uid://cutgfnmu44uxf" path="res://assets/drink_craft_assets/plain_drinks/glass_gin_only.PNG" id="15_c31e2"]
 [ext_resource type="Texture2D" uid="uid://erai70r783sb" path="res://assets/drink_craft_assets/plain_drinks/wineglass_top.PNG" id="15_oploh"]
 [ext_resource type="Texture2D" uid="uid://elkbb7d8dp0e" path="res://assets/drink_craft_assets/plain_drinks/tankard_top.PNG" id="16_kt7r6"]
 [ext_resource type="Texture2D" uid="uid://bnv7t2kewj8t2" path="res://assets/drink_craft_assets/potion_components/firepepperseed_whole.PNG" id="16_sh7y3"]
 [ext_resource type="Texture2D" uid="uid://kgpym48pag0c" path="res://assets/drink_craft_assets/potion_components/fortiflower_whole.PNG" id="17_7cuxb"]
 [ext_resource type="Texture2D" uid="uid://bc0p811egi0om" path="res://assets/drink_craft_assets/potion_components/galegrass_whole.PNG" id="18_i2prn"]
-[ext_resource type="Texture2D" uid="uid://cmohjwtq46tn4" path="res://assets/drink_craft_assets/plain_drinks/wineglass_ruined_only.PNG" id="18_rvkkv"]
 [ext_resource type="Texture2D" uid="uid://cheg8yr6rk3b8" path="res://assets/drink_craft_assets/potion_components/hartroot_whole.PNG" id="19_5his2"]
 [ext_resource type="Texture2D" uid="uid://ck8qh4lqjw05q" path="res://assets/drink_craft_assets/potion_components/hartroot_chopped.PNG" id="20_8sofe"]
-[ext_resource type="Texture2D" uid="uid://psppdsfuf6p4" path="res://assets/drink_craft_assets/plain_drinks/tankard_ruined.PNG" id="21_0s0g1"]
 [ext_resource type="Texture2D" uid="uid://d2xeqyjlg10aa" path="res://assets/drink_craft_assets/drink_dropdown_card.PNG" id="27_7l75q"]
+[ext_resource type="Script" path="res://scenes/crafting_games/gin.gd" id="27_ltgnc"]
 [ext_resource type="Texture2D" uid="uid://c3ain7ds8hp03" path="res://assets/drink_craft_assets/submit_icon.PNG" id="28_ayj6y"]
+[ext_resource type="Script" path="res://scenes/crafting_games/glowy_button_toggle.gd" id="28_eqbmf"]
+[ext_resource type="ButtonGroup" uid="uid://dpfmfxwsmgk3w" path="res://shaders/crafting_game/selected_potion_comp.tres" id="28_qgbqt"]
 [ext_resource type="Texture2D" uid="uid://bdy8cmd3yy6jn" path="res://assets/drink_craft_assets/trash_icon.PNG" id="29_54ny6"]
 
 [sub_resource type="Animation" id="Animation_m2c5c"]
@@ -56,10 +56,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DrinkDropdownCard:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_1rhwf"]
 resource_name = "fade_in"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -67,7 +79,7 @@ tracks/0/path = NodePath("DrinkDropdownCard:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.266667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -84,10 +96,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DrinkDropdownCard:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0.985), Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_834i5"]
 resource_name = "fade_out"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -95,7 +119,7 @@ tracks/0/path = NodePath("DrinkDropdownCard:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -107,10 +131,22 @@ tracks/1/path = NodePath("DrinkDropdownCard:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DrinkDropdownCard:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.99)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_454yi"]
@@ -204,6 +240,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_q2434")
@@ -404,18 +441,6 @@ texture = ExtResource("14_ypij5")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="GlassLiquid" type="TextureRect" parent="Items/Glass"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("15_c31e2")
-expand_mode = 2
-stretch_mode = 4
-
 [node name="Wineglass" type="Control" parent="Items"]
 layout_mode = 1
 anchors_preset = 15
@@ -434,18 +459,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("15_oploh")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="WineglassLiquid" type="TextureRect" parent="Items/Wineglass"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("18_rvkkv")
 expand_mode = 2
 stretch_mode = 4
 
@@ -470,15 +483,13 @@ texture = ExtResource("16_kt7r6")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TankardLiquid" type="TextureRect" parent="Items/Tankard"]
-visible = false
+[node name="Liquid" type="TextureRect" parent="Items"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("21_0s0g1")
 expand_mode = 2
 stretch_mode = 4
 
@@ -531,7 +542,7 @@ libraries = {
 "": SubResource("AnimationLibrary_454yi")
 }
 
-[node name="Tankard" type="Button" parent="."]
+[node name="Tankard" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 687.0
 offset_top = 68.0
@@ -549,8 +560,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Objects/TankardShelf")
 
-[node name="Glass" type="Button" parent="."]
+[node name="Glass" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 789.0
 offset_top = 126.0
@@ -568,8 +581,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Objects/GlassShelf")
 
-[node name="Wineglass" type="Button" parent="."]
+[node name="Wineglass" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 908.0
 offset_top = 57.0
@@ -587,8 +602,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Objects/WineglassShelf")
 
-[node name="Gin" type="Button" parent="."]
+[node name="Gin" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 574.0
 offset_top = 57.0
@@ -606,8 +623,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Objects/GinShelf")
 
-[node name="Cider" type="Button" parent="."]
+[node name="Cider" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 458.0
 offset_top = 39.0
@@ -625,8 +644,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Objects/CiderShelf")
 
-[node name="Wine" type="Button" parent="."]
+[node name="Wine" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 352.0
 offset_top = 52.0
@@ -644,8 +665,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Objects/WineShelf")
 
-[node name="Ale" type="Button" parent="."]
+[node name="Ale" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 160.0
@@ -663,8 +686,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Objects/AleBarrel")
 
-[node name="Beer" type="Button" parent="."]
+[node name="Beer" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 431.0
@@ -682,8 +707,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Objects/BeerBarrel")
 
-[node name="DropdownMenuTrash" type="Button" parent="."]
+[node name="DropdownMenuTrash" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 399.0
 offset_top = 470.0
@@ -701,8 +728,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../DropdownMenu/DrinkDropdownCard/TrashIcon")
 
-[node name="DropdownMenuSubmit" type="Button" parent="."]
+[node name="DropdownMenuSubmit" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 443.0
 offset_top = 470.0
@@ -720,8 +749,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../DropdownMenu/DrinkDropdownCard/SubmitIcon")
 
-[node name="Firepepperseed" type="Button" parent="."]
+[node name="Firepepperseed" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 1056.0
 offset_top = 338.0
@@ -740,8 +771,12 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+toggle_mode = true
+button_group = ExtResource("28_qgbqt")
+script = ExtResource("28_eqbmf")
+texture_node = NodePath("../Items/PotionComponent/FirepepperseedWhole")
 
-[node name="Fortiflower" type="Button" parent="."]
+[node name="Fortiflower" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 1022.0
 offset_top = 257.0
@@ -759,8 +794,12 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+toggle_mode = true
+button_group = ExtResource("28_qgbqt")
+script = ExtResource("28_eqbmf")
+texture_node = NodePath("../Items/PotionComponent/FortiflowerWhole")
 
-[node name="Galegrass" type="Button" parent="."]
+[node name="Galegrass" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 1114.0
 offset_top = 323.0
@@ -779,8 +818,12 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+toggle_mode = true
+button_group = ExtResource("28_qgbqt")
+script = ExtResource("28_eqbmf")
+texture_node = NodePath("../Items/PotionComponent/GalegrassWhole")
 
-[node name="Hartroot" type="Button" parent="."]
+[node name="Hartroot" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 1089.0
 offset_top = 245.0
@@ -799,8 +842,12 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+toggle_mode = true
+button_group = ExtResource("28_qgbqt")
+script = ExtResource("28_eqbmf")
+texture_node = NodePath("../Items/PotionComponent/HartrootWhole")
 
-[node name="Mortar" type="Button" parent="."]
+[node name="Mortar" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 1092.0
 offset_top = 456.0
@@ -818,8 +865,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Objects/MortarPestle")
 
-[node name="Knife" type="Button" parent="."]
+[node name="Knife" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
 offset_left = 1009.0
 offset_top = 449.0
@@ -837,13 +886,15 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Objects/Knife")
 
-[node name="ChoppedPotionComponent" type="Button" parent="."]
+[node name="ChoppedPotionComponent" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
-offset_left = 580.0
-offset_top = 400.0
-offset_right = 763.0
-offset_bottom = 575.0
+offset_left = 579.0
+offset_top = 353.0
+offset_right = 765.0
+offset_bottom = 605.0
 mouse_filter = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
@@ -856,12 +907,15 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Items/PotionComponent/CurrentChoppedPotionComponent")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DropdownMenuArea" type="Area2D" parent="CanvasLayer"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DropdownMenuArea"]
+visible = false
 position = Vector2(450, 417.5)
 shape = SubResource("RectangleShape2D_f4gyo")
 

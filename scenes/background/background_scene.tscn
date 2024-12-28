@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://bfi28jisx373r"]
+[gd_scene load_steps=34 format=3 uid="uid://bfi28jisx373r"]
 
 [ext_resource type="Texture2D" uid="uid://b5rvn44r1a7t7" path="res://assets/backgrounds/barcounter_background.PNG" id="1_6y1xs"]
 [ext_resource type="Texture2D" uid="uid://br3355xqnwqvm" path="res://assets/backgrounds/day_lighting/day_2_screen_5percent.PNG" id="1_c1l4j"]
 [ext_resource type="Texture2D" uid="uid://ch3867lm2ofpv" path="res://assets/backgrounds/barcounter.PNG" id="2_44wrj"]
+[ext_resource type="Texture2D" uid="uid://c21da2taq0qp0" path="res://assets/ui_dialogue_menus/dialogue_box.PNG" id="3_e3c27"]
 [ext_resource type="Texture2D" uid="uid://butl7f1vyv5j5" path="res://assets/backgrounds/day_lighting/day_1_add_60percent.PNG" id="4_ryjk1"]
 [ext_resource type="Texture2D" uid="uid://c60wnpj18gkv5" path="res://assets/backgrounds/evening_lighting/evening_1_add_60percent.PNG" id="5_0baaw"]
 [ext_resource type="Texture2D" uid="uid://bqcv5atrwjce1" path="res://assets/backgrounds/evening_lighting/evening_2_lightercolor_5percent.PNG" id="5_8es8a"]
@@ -16,6 +17,9 @@
 [ext_resource type="Script" path="res://scenes/background/game_manager.gd" id="12_wtpik"]
 [ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="13_fgn81"]
 [ext_resource type="Resource" uid="uid://cior4lalskl15" path="res://components/crafting/items/chopped_items/chopped_hartroot.tres" id="14_hw4tw"]
+[ext_resource type="Resource" uid="uid://texpluuqf5pc" path="res://components/crafting/items/ingredients/wine.tres" id="17_b7n4p"]
+[ext_resource type="Resource" uid="uid://b31smwqnb85vr" path="res://components/crafting/items/ingredients/tankard_with_firepepper_ale.tres" id="18_5nr2g"]
+[ext_resource type="Resource" uid="uid://crhtmvkmugmdk" path="res://components/crafting/items/ingredients/beer.tres" id="19_pr4mh"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lyaor"]
 blend_mode = 1
@@ -187,15 +191,6 @@ description = ""
 processing = Array[int]([])
 fame_required = 0
 
-[sub_resource type="Resource" id="Resource_cex2u"]
-script = ExtResource("13_fgn81")
-ingredient_name = "Banana"
-cost = 0
-quality = 0
-description = ""
-processing = Array[int]([])
-fame_required = 0
-
 [node name="BackgroundScene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -231,6 +226,26 @@ grow_vertical = 2
 texture = ExtResource("2_44wrj")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="DialogueBox" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e3c27")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 177.0
+offset_right = 1077.0
+offset_bottom = 291.0
+bbcode_enabled = true
+text = "gageage"
 
 [node name="Day" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -340,15 +355,15 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="Darkness" type="PointLight2D" parent="Night"]
-position = Vector2(613, 390.5)
-scale = Vector2(29.1875, 17.9531)
+position = Vector2(640, 360)
+scale = Vector2(20, 11.25)
 color = Color(1, 1, 1, 0.319)
 blend_mode = 1
 texture = SubResource("GradientTexture2D_8cqub")
 
 [node name="BlueLight" type="PointLight2D" parent="Night"]
-position = Vector2(661, 409)
-scale = Vector2(17.875, 13.5)
+position = Vector2(640, 360)
+scale = Vector2(0.333333, 0.333333)
 color = Color(1, 1, 1, 0.36)
 texture = ExtResource("9_mi71u")
 
@@ -384,6 +399,7 @@ libraries = {
 [node name="Debug" type="CanvasLayer" parent="."]
 
 [node name="Button" type="Button" parent="Debug"]
+visible = false
 offset_left = 910.0
 offset_top = 171.0
 offset_right = 1049.0
@@ -393,6 +409,7 @@ script = ExtResource("11_ow2to")
 item = ExtResource("14_hw4tw")
 
 [node name="Button3" type="Button" parent="Debug"]
+visible = false
 offset_left = 921.0
 offset_top = 112.0
 offset_right = 1062.0
@@ -402,17 +419,17 @@ script = ExtResource("11_ow2to")
 item = SubResource("Resource_tv04g")
 
 [node name="Button2" type="Button" parent="Debug"]
-offset_left = 1015.0
-offset_top = 250.0
-offset_right = 1162.0
-offset_bottom = 281.0
+offset_left = 1106.0
+offset_top = 85.0
+offset_right = 1253.0
+offset_bottom = 116.0
 text = "start queue signal"
 script = ExtResource("11_u452s")
 
 [node name="QueueManager" type="Node" parent="."]
 script = ExtResource("11_o8uod")
 npc_amount = 3
-available_dishes = Array[ExtResource("13_fgn81")]([ExtResource("14_hw4tw"), SubResource("Resource_cex2u")])
+available_dishes = Array[ExtResource("13_fgn81")]([ExtResource("17_b7n4p"), ExtResource("18_5nr2g"), ExtResource("19_pr4mh")])
 
 [node name="GameManager" type="Control" parent="."]
 layout_mode = 1

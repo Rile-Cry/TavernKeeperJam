@@ -2,6 +2,8 @@ class_name GameManager
 extends Control
 @onready var label: Label = $Label
 @onready var queue_manager: QueueManager = $"../QueueManager"
+@onready var dialogue_box: TextureRect = $"../DialogueBox"
+@onready var rich_text_label: RichTextLabel = $"../DialogueBox/RichTextLabel"
 
 var queue_started :bool = false
 var ordered_item: TavernItem
@@ -22,22 +24,23 @@ func on_start_queue()->void:
 
 
 func order_item(item: TavernItem)->void:
-	print("ordered item: " + str(item.ingredient_name))
+	#print("ordered item: " + str(item.ingredient_name))
+	rich_text_label.text = "please bring me [color=red]"+ str(item.ingredient_name) + "[/color]"
 	ordered_item = item
 	update_label()
 	pass
 
 func on_item_given(item: TavernItem) ->void:
-	print("item received " + str(item.ingredient_name))
+	
 	if ordered_item.ingredient_name == item.ingredient_name:
-		print("items match so proceeding to next customer")
+		#print("items match so proceeding to next customer")
 		queue_manager.continue_queue()
-		
+	#elif 
 
 
 func day_completed()->void:
 	update_label()
-	print("day completed")
+	#print("day completed")
 
 
 func update_label() ->void:

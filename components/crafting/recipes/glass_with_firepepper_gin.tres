@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TavernRecipe" load_steps=7 format=3 uid="uid://cadpu5vmgxoxu"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_bk6br"]
+[ext_resource type="Resource" uid="uid://dig86565yy8jp" path="res://components/crafting/items/ingredients/glass.tres" id="2_mrry1"]
+[ext_resource type="Resource" uid="uid://cdh7bpwitvpie" path="res://components/crafting/items/ingredients/gin.tres" id="3_u8syn"]
+[ext_resource type="Script" path="res://components/crafting/scripts/recipe_resource.gd" id="4_67q5l"]
+[ext_resource type="Resource" uid="uid://t4km84iv6ouc" path="res://components/crafting/items/ingredients/chopped_firepepper.tres" id="4_uw27k"]
+[ext_resource type="Resource" uid="uid://cx5x1l2tegwuq" path="res://components/crafting/items/ingredients/glass_with_firepepper_gin.tres" id="5_0xyhb"]
+
+[resource]
+script = ExtResource("4_67q5l")
+ingredients = Array[ExtResource("1_bk6br")]([ExtResource("2_mrry1"), ExtResource("3_u8syn"), ExtResource("4_uw27k")])
+process_method = 4
+result = ExtResource("5_0xyhb")

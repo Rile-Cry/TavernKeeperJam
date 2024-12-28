@@ -14,7 +14,10 @@ script = ExtResource("1_1c6ue")
 
 [node name="Npc" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.175, 0.175)
+offset_left = 92.0
+offset_top = -3297.0
+offset_right = 3164.0
+offset_bottom = 801.0
+scale = Vector2(0.15, 0.15)
+pivot_offset = Vector2(0, 4000)
 texture = ExtResource("2_eb61c")

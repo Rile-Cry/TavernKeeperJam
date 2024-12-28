@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://3xhi0o0vsvbx"]
+
+[ext_resource type="Shader" path="res://shaders/crafting_game/light_up.gdshader" id="1_mdlai"]
+
+[resource]
+shader = ExtResource("1_mdlai")

@@ -41,7 +41,7 @@ func create_customer()->void:
 	current_customer.character_sprite = npc_texture_array[randi_range(0, npc_texture_array.size()-1)]
 	
 	current_customer.initialise()
-	print("*customer walks in*")
+	#print("*customer walks in*")
 	characters.add_child(current_customer)
 	#EventBus.give_item.emit(available_dishes[randi_range(0, available_dishes.size()-1 )])
 	game_manager.order_item(available_dishes[randi_range(0, available_dishes.size()-1 )])
@@ -50,6 +50,6 @@ func create_customer()->void:
 
 func leave_customer() ->void:
 	if current_customer !=null:
-		print("*customer walks away*")
+		#print("*customer walks away*")
 		current_customer.queue_free()
 	remaining_customers-=1

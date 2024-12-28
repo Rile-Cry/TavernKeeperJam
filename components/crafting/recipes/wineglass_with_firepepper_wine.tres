@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TavernRecipe" load_steps=7 format=3 uid="uid://bwqpacrwno0kb"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_l27nl"]
+[ext_resource type="Resource" uid="uid://dx88cwk2nxep4" path="res://components/crafting/items/ingredients/wineglass.tres" id="2_f76oe"]
+[ext_resource type="Resource" uid="uid://texpluuqf5pc" path="res://components/crafting/items/ingredients/wine.tres" id="3_v6tqy"]
+[ext_resource type="Resource" uid="uid://ocuq7w4bn75t" path="res://components/crafting/items/ingredients/wineglass_with_firepepper_wine.tres" id="4_gc8tr"]
+[ext_resource type="Resource" uid="uid://t4km84iv6ouc" path="res://components/crafting/items/ingredients/chopped_firepepper.tres" id="4_wvd3x"]
+[ext_resource type="Script" path="res://components/crafting/scripts/recipe_resource.gd" id="6_ln6r4"]
+
+[resource]
+script = ExtResource("6_ln6r4")
+ingredients = Array[ExtResource("1_l27nl")]([ExtResource("2_f76oe"), ExtResource("3_v6tqy"), ExtResource("4_wvd3x")])
+process_method = 4
+result = ExtResource("4_gc8tr")

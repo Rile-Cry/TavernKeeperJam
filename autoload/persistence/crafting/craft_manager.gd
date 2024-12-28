@@ -8,17 +8,21 @@ var _recipe_path := "res://components/crafting/recipes"
 
 
 func craft(ingredient_list: Array[String], process: TavernItem.PROCESS_TYPE) -> TavernItem:
-	var craft_list := []
+	var craft_list : Array[TavernItem] = []
 	for ingredient in ingredient_list:
 		craft_list.append(ingredients[ingredient])
+	
+	if _recipe_check(craft_list, process) == null:
+		return null
 	return _recipe_check(craft_list, process).result
 
 
 func _recipe_check(ingredient_list: Array[TavernItem], process: TavernItem.PROCESS_TYPE) -> TavernRecipe:
 	for recipe in recipes:
+		
 		if recipes[recipe].process_method == process:
-			if recipes[recipe].ingredients.has_all(ingredient_list) and recipes[recipe].ingredients.size() == ingredient_list.size():
-				return recipe
+			if has_all(recipes[recipe].ingredients, ingredient_list) and recipes[recipe].ingredients.size() == ingredient_list.size():
+				return recipes[recipe]
 	return null
 
 func _load_ingredients() -> void:
@@ -51,6 +55,12 @@ func _load_dir(path: String, sub_dir: String = "") -> Array[String]:
 		return list
 	else:
 		return []
+
+func has_all(array1 : Array[TavernItem], array2: Array[TavernItem] ) ->bool:
+	for item in array1:
+		if !array2.has(item):
+			return false
+	return true
 
 
 func _ready() -> void:

@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dlij03dqyy1co"]
+[gd_scene load_steps=36 format=3 uid="uid://dlij03dqyy1co"]
 
 [ext_resource type="Texture2D" uid="uid://bs6aekthjg2k5" path="res://assets/backgrounds/drinkcounter_background.PNG" id="1_1pwch"]
+[ext_resource type="Script" path="res://scenes/crafting_games/main_crafting_games.gd" id="1_wmeup"]
 [ext_resource type="Texture2D" uid="uid://bb1fm5183etor" path="res://assets/drink_craft_assets/ale_barrel.PNG" id="2_05kiw"]
 [ext_resource type="Texture2D" uid="uid://d1gi7ep7rygxm" path="res://assets/drink_craft_assets/beer_barrel.PNG" id="3_17er5"]
+[ext_resource type="Texture2D" uid="uid://dxyco5vjklygk" path="res://assets/backgrounds/bar/border.PNG" id="3_m406a"]
 [ext_resource type="Texture2D" uid="uid://bjluhybp3h8lw" path="res://assets/drink_craft_assets/cider_shelf.PNG" id="4_5toon"]
 [ext_resource type="Texture2D" uid="uid://c4o1ag82yb5hs" path="res://assets/drink_craft_assets/gin_shelf.PNG" id="5_q2434"]
 [ext_resource type="Texture2D" uid="uid://bbjct5owv1ab8" path="res://assets/drink_craft_assets/glass_shelf.PNG" id="6_ayeet"]
@@ -14,8 +16,114 @@
 [ext_resource type="Texture2D" uid="uid://dtw0cv54o7r1d" path="res://assets/drink_craft_assets/wineglass_shelf.PNG" id="12_ossib"]
 [ext_resource type="Texture2D" uid="uid://dsdpwwsj14hu1" path="res://assets/drink_craft_assets/wine_shelf.PNG" id="13_h82hv"]
 [ext_resource type="Texture2D" uid="uid://dfyk6yy7pdee" path="res://assets/drink_craft_assets/plain_drinks/glass_top.PNG" id="14_ypij5"]
+[ext_resource type="Texture2D" uid="uid://cutgfnmu44uxf" path="res://assets/drink_craft_assets/plain_drinks/glass_gin_only.PNG" id="15_c31e2"]
 [ext_resource type="Texture2D" uid="uid://erai70r783sb" path="res://assets/drink_craft_assets/plain_drinks/wineglass_top.PNG" id="15_oploh"]
 [ext_resource type="Texture2D" uid="uid://elkbb7d8dp0e" path="res://assets/drink_craft_assets/plain_drinks/tankard_top.PNG" id="16_kt7r6"]
+[ext_resource type="Texture2D" uid="uid://bnv7t2kewj8t2" path="res://assets/drink_craft_assets/potion_components/firepepperseed_whole.PNG" id="16_sh7y3"]
+[ext_resource type="Texture2D" uid="uid://kgpym48pag0c" path="res://assets/drink_craft_assets/potion_components/fortiflower_whole.PNG" id="17_7cuxb"]
+[ext_resource type="Texture2D" uid="uid://bc0p811egi0om" path="res://assets/drink_craft_assets/potion_components/galegrass_whole.PNG" id="18_i2prn"]
+[ext_resource type="Texture2D" uid="uid://cmohjwtq46tn4" path="res://assets/drink_craft_assets/plain_drinks/wineglass_ruined_only.PNG" id="18_rvkkv"]
+[ext_resource type="Texture2D" uid="uid://cheg8yr6rk3b8" path="res://assets/drink_craft_assets/potion_components/hartroot_whole.PNG" id="19_5his2"]
+[ext_resource type="Texture2D" uid="uid://ck8qh4lqjw05q" path="res://assets/drink_craft_assets/potion_components/hartroot_chopped.PNG" id="20_8sofe"]
+[ext_resource type="Texture2D" uid="uid://psppdsfuf6p4" path="res://assets/drink_craft_assets/plain_drinks/tankard_ruined.PNG" id="21_0s0g1"]
+[ext_resource type="Texture2D" uid="uid://d2xeqyjlg10aa" path="res://assets/drink_craft_assets/drink_dropdown_card.PNG" id="27_7l75q"]
+[ext_resource type="Texture2D" uid="uid://c3ain7ds8hp03" path="res://assets/drink_craft_assets/submit_icon.PNG" id="28_ayj6y"]
+[ext_resource type="Texture2D" uid="uid://bdy8cmd3yy6jn" path="res://assets/drink_craft_assets/trash_icon.PNG" id="29_54ny6"]
+
+[sub_resource type="Animation" id="Animation_m2c5c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DrinkDropdownCard:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DrinkDropdownCard:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1rhwf"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DrinkDropdownCard:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DrinkDropdownCard:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_834i5"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DrinkDropdownCard:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DrinkDropdownCard:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_454yi"]
+_data = {
+"RESET": SubResource("Animation_m2c5c"),
+"fade_in": SubResource("Animation_1rhwf"),
+"fade_out": SubResource("Animation_834i5")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efysb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4gyo"]
+size = Vector2(168, 215)
 
 [node name="MainCraftingGames" type="Control"]
 layout_mode = 3
@@ -24,8 +132,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_wmeup")
 
-[node name="DrinkCounter" type="TextureRect" parent="."]
+[node name="Objects" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="DrinkCounter" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +155,18 @@ texture = ExtResource("1_1pwch")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="AleBarrel" type="TextureRect" parent="."]
+[node name="Border" type="TextureRect" parent="Objects"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_m406a")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="AleBarrel" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,7 +177,7 @@ texture = ExtResource("2_05kiw")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="BeerBarrel" type="TextureRect" parent="."]
+[node name="BeerBarrel" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,7 +188,7 @@ texture = ExtResource("3_17er5")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="CiderShelf" type="TextureRect" parent="."]
+[node name="CiderShelf" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,7 +199,7 @@ texture = ExtResource("4_5toon")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="GinShelf" type="TextureRect" parent="."]
+[node name="GinShelf" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,7 +210,7 @@ texture = ExtResource("5_q2434")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="GlassShelf" type="TextureRect" parent="."]
+[node name="GlassShelf" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -91,7 +221,7 @@ texture = ExtResource("6_ayeet")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="IngredientCloth" type="TextureRect" parent="."]
+[node name="IngredientCloth" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,7 +232,7 @@ texture = ExtResource("7_w2bkc")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Knife" type="TextureRect" parent="."]
+[node name="Knife" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,7 +243,7 @@ texture = ExtResource("8_dkrnd")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="MortarPestle" type="TextureRect" parent="."]
+[node name="MortarPestle" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,7 +254,7 @@ texture = ExtResource("9_4mhng")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Notecard" type="TextureRect" parent="."]
+[node name="Notecard" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,7 +265,7 @@ texture = ExtResource("10_866yr")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TankardShelf" type="TextureRect" parent="."]
+[node name="TankardShelf" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -146,7 +276,7 @@ texture = ExtResource("11_lluqo")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="WineglassShelf" type="TextureRect" parent="."]
+[node name="WineglassShelf" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -157,7 +287,7 @@ texture = ExtResource("12_ossib")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="WineShelf" type="TextureRect" parent="."]
+[node name="WineShelf" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,8 +305,94 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
-[node name="GlassTop" type="TextureRect" parent="Items"]
+[node name="PotionComponent" type="Control" parent="Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="FirepepperseedWhole" type="TextureRect" parent="Items/PotionComponent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_sh7y3")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="FortiflowerWhole" type="TextureRect" parent="Items/PotionComponent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_7cuxb")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="GalegrassWhole" type="TextureRect" parent="Items/PotionComponent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_i2prn")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="HartrootWhole" type="TextureRect" parent="Items/PotionComponent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_5his2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="CurrentCrushedPotionComponent" type="TextureRect" parent="Items/PotionComponent"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 4
+
+[node name="CurrentChoppedPotionComponent" type="TextureRect" parent="Items/PotionComponent"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_8sofe")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Glass" type="Control" parent="Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="GlassTop" type="TextureRect" parent="Items/Glass"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -188,7 +404,29 @@ texture = ExtResource("14_ypij5")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="WineGlass" type="TextureRect" parent="Items"]
+[node name="GlassLiquid" type="TextureRect" parent="Items/Glass"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_c31e2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Wineglass" type="Control" parent="Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Wineglass" type="TextureRect" parent="Items/Wineglass"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -199,7 +437,28 @@ texture = ExtResource("15_oploh")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TankardTop" type="TextureRect" parent="Items"]
+[node name="WineglassLiquid" type="TextureRect" parent="Items/Wineglass"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_rvkkv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Tankard" type="Control" parent="Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TankardTop" type="TextureRect" parent="Items/Tankard"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -210,3 +469,418 @@ grow_vertical = 2
 texture = ExtResource("16_kt7r6")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="TankardLiquid" type="TextureRect" parent="Items/Tankard"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_0s0g1")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="DropdownMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="DrinkDropdownCard" type="TextureRect" parent="DropdownMenu"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_7l75q")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="SubmitIcon" type="TextureRect" parent="DropdownMenu/DrinkDropdownCard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_ayj6y")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="TrashIcon" type="TextureRect" parent="DropdownMenu/DrinkDropdownCard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_54ny6")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="DropdownMenu" type="AnimationPlayer" parent="DropdownMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_454yi")
+}
+
+[node name="Tankard" type="Button" parent="."]
+layout_mode = 0
+offset_left = 687.0
+offset_top = 68.0
+offset_right = 781.0
+offset_bottom = 205.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Glass" type="Button" parent="."]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 126.0
+offset_right = 877.0
+offset_bottom = 217.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Wineglass" type="Button" parent="."]
+layout_mode = 0
+offset_left = 908.0
+offset_top = 57.0
+offset_right = 1003.0
+offset_bottom = 211.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Gin" type="Button" parent="."]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 57.0
+offset_right = 669.0
+offset_bottom = 211.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Cider" type="Button" parent="."]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 39.0
+offset_right = 572.0
+offset_bottom = 211.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Wine" type="Button" parent="."]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 52.0
+offset_right = 409.0
+offset_bottom = 211.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Ale" type="Button" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 160.0
+offset_right = 282.0
+offset_bottom = 415.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Beer" type="Button" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 431.0
+offset_right = 288.0
+offset_bottom = 695.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="DropdownMenuTrash" type="Button" parent="."]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 470.0
+offset_right = 443.0
+offset_bottom = 504.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="DropdownMenuSubmit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 470.0
+offset_right = 487.0
+offset_bottom = 504.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Firepepperseed" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 338.0
+offset_right = 1100.0
+offset_bottom = 384.0
+rotation = 0.562216
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Fortiflower" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1022.0
+offset_top = 257.0
+offset_right = 1072.0
+offset_bottom = 314.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Galegrass" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1114.0
+offset_top = 323.0
+offset_right = 1152.0
+offset_bottom = 415.0
+rotation = 0.518227
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Hartroot" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1089.0
+offset_top = 245.0
+offset_right = 1136.0
+offset_bottom = 346.0
+rotation = 0.375702
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Mortar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1092.0
+offset_top = 456.0
+offset_right = 1256.0
+offset_bottom = 613.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="Knife" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1009.0
+offset_top = 449.0
+offset_right = 1085.0
+offset_bottom = 701.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="ChoppedPotionComponent" type="Button" parent="."]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 400.0
+offset_right = 763.0
+offset_bottom = 575.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DropdownMenuArea" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DropdownMenuArea"]
+position = Vector2(450, 417.5)
+shape = SubResource("RectangleShape2D_f4gyo")
+
+[connection signal="pressed" from="Tankard" to="." method="_on_tankard_pressed"]
+[connection signal="pressed" from="Glass" to="." method="_on_glass_pressed"]
+[connection signal="pressed" from="Wineglass" to="." method="_on_wineglass_pressed"]
+[connection signal="pressed" from="Gin" to="." method="_on_gin_pressed"]
+[connection signal="pressed" from="Cider" to="." method="_on_cider_pressed"]
+[connection signal="pressed" from="Wine" to="." method="_on_wine_pressed"]
+[connection signal="pressed" from="Ale" to="." method="_on_ale_pressed"]
+[connection signal="pressed" from="Beer" to="." method="_on_beer_pressed"]
+[connection signal="pressed" from="DropdownMenuTrash" to="." method="_on_dropdown_menu_trash_pressed"]
+[connection signal="pressed" from="DropdownMenuSubmit" to="." method="_on_dropdown_menu_submit_pressed"]
+[connection signal="pressed" from="Firepepperseed" to="." method="_on_firepepperseed_pressed"]
+[connection signal="pressed" from="Fortiflower" to="." method="_on_fortiflower_pressed"]
+[connection signal="pressed" from="Galegrass" to="." method="_on_galegrass_pressed"]
+[connection signal="pressed" from="Hartroot" to="." method="_on_hartroot_pressed"]
+[connection signal="pressed" from="Mortar" to="." method="_on_mortar_pressed"]
+[connection signal="pressed" from="Knife" to="." method="_on_knife_pressed"]
+[connection signal="pressed" from="ChoppedPotionComponent" to="." method="_on_chopped_potion_component_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/DropdownMenuArea" to="." method="_on_dropdown_menu_area_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/DropdownMenuArea" to="." method="_on_dropdown_menu_area_mouse_exited"]

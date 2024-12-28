@@ -10,6 +10,7 @@ var npc_texture_array : Array[Texture2D] = [
 	preload("res://assets/character_sprites/disgruntledfarmer.PNG"),
 	preload("res://assets/character_sprites/frazzledweaver.PNG"),
 	preload("res://assets/character_sprites/hildegard.PNG"),
+	preload("res://assets/character_sprites/roguishsmuggler.PNG"),
 	preload("res://assets/character_sprites/wanderingdrunkard.PNG"),
 	
 ]

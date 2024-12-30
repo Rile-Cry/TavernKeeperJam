@@ -1,5 +1,6 @@
 class_name QueueManager
 extends Node
+@onready var npc_animation: AnimationPlayer = $"../NpcAnimation"
 
 const NPC_CUSTOMER = preload("res://components/npc/npc_customer.tscn")
 @onready var characters: Control = $"../Characters"
@@ -28,6 +29,7 @@ func start_queue()->void:
 func continue_queue()->void:
 	if remaining_customers >1:
 		leave_customer()
+		await get_tree().create_timer(1,false).timeout
 		create_customer()
 	else:
 		leave_customer()
@@ -41,15 +43,17 @@ func create_customer()->void:
 	current_customer.character_sprite = npc_texture_array[randi_range(0, npc_texture_array.size()-1)]
 	
 	current_customer.initialise()
+	npc_animation.play("person_appear")
 	#print("*customer walks in*")
 	characters.add_child(current_customer)
 	#EventBus.give_item.emit(available_dishes[randi_range(0, available_dishes.size()-1 )])
-	game_manager.order_item(available_dishes[randi_range(0, available_dishes.size()-1 )])
-	
+	#game_manager.order_item(available_dishes[randi_range(0, available_dishes.size()-1 )])
+	EventBus.order_item.emit(available_dishes[randi_range(0, available_dishes.size()-1 )])
 	
 
 func leave_customer() ->void:
 	if current_customer !=null:
+		npc_animation.play("person_disappear")
 		#print("*customer walks away*")
 		current_customer.queue_free()
 	remaining_customers-=1

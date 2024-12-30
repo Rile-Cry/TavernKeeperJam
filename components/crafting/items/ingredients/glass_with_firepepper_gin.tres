@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_oy87a")
-ingredient_name = "Glass with firepepper gin"
+ingredient_name = "Fire gin"
 cost = 0
 quality = 0
 description = ""

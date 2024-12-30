@@ -4,6 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://dlij03dqyy1co" path="res://scenes/crafting_games/main_crafting_games.tscn" id="2_1u81s"]
 [ext_resource type="Script" path="res://scenes/main/gameplay_prototype/button.gd" id="3_owlq7"]
 
+[sub_resource type="Animation" id="Animation_0gna0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 360)]
+}
+
 [sub_resource type="Animation" id="Animation_wahd6"]
 resource_name = "move_to_bar"
 length = 0.5
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(640, 360), Vector2(1920, 360)]
-}
-
-[sub_resource type="Animation" id="Animation_0gna0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(640, 360)]
 }
 
 [sub_resource type="Animation" id="Animation_d0xpg"]

@@ -13,8 +13,22 @@ extends Control
 @onready var fortiflower: GlowyButtonToggle = $Fortiflower
 @onready var galegrass: GlowyButtonToggle = $Galegrass
 @onready var hartroot: GlowyButtonToggle = $Hartroot
+@onready var potion_component_buttons : Array[GlowyButtonToggle] = [firepepperseed,fortiflower,galegrass,hartroot]
 
+@onready var card: RichTextLabel = $Card
 
+#containers
+@onready var glass_shelf: TextureRect = $Objects/GlassShelf
+@onready var tankard_shelf: TextureRect = $Objects/TankardShelf
+@onready var wineglass_shelf: TextureRect = $Objects/WineglassShelf
+@onready var containers : Array[TextureRect] = [glass_shelf,tankard_shelf, wineglass_shelf ]
+
+#potion components
+@onready var firepepperseed_whole: TextureRect = $Items/PotionComponent/FirepepperseedWhole
+@onready var fortiflower_whole: TextureRect = $Items/PotionComponent/FortiflowerWhole
+@onready var galegrass_whole: TextureRect = $Items/PotionComponent/GalegrassWhole
+@onready var hartroot_whole: TextureRect = $Items/PotionComponent/HartrootWhole
+@onready var potion_components : Array[TextureRect] = [firepepperseed_whole, fortiflower_whole,galegrass_whole, hartroot_whole]
 
 var container_selected : bool = false
 
@@ -68,6 +82,7 @@ var current_ingredients : Array[String] = []
 
 func _on_tankard_pressed() -> void:
 	if !container_selected:
+		tankard_shelf.visible = false
 		current_ingredients.append("Tankard")
 		container_selected = true
 		CURRENT_CONTAINER = CONTAINERS.TANKARD
@@ -77,6 +92,7 @@ func _on_tankard_pressed() -> void:
 
 func _on_glass_pressed() -> void:
 	if !container_selected:
+		glass_shelf.visible = false
 		container_selected = true
 		CURRENT_CONTAINER = CONTAINERS.GLASS
 		glass_top.visible = true
@@ -85,6 +101,7 @@ func _on_glass_pressed() -> void:
 
 func _on_wineglass_pressed() -> void:
 	if !container_selected:
+		wineglass_shelf.visible = false
 		container_selected = true
 		CURRENT_CONTAINER = CONTAINERS.WINEGLASS
 		wineglass.visible = true
@@ -104,6 +121,16 @@ func _on_dropdown_menu_area_mouse_exited() -> void:
 
 
 func _on_dropdown_menu_trash_pressed() -> void:
+	#play sound
+	trash_item()
+
+func trash_item()->void:
+	for container in containers:
+		container.visible = true
+	for potion_component in potion_components:
+		potion_component.visible = true
+	for potion_component_button in potion_component_buttons:
+		potion_component_button.disabled = false
 	current_ingredients = []
 	container_selected = false
 	liquid.texture = null
@@ -116,7 +143,6 @@ func _on_dropdown_menu_trash_pressed() -> void:
 		CONTAINERS.TANKARD:
 			tankard_top.visible = false
 	CURRENT_CONTAINER = CONTAINERS.NULL
-
 
 func _on_dropdown_menu_submit_pressed() -> void:
 	#print("submitted drink")
@@ -126,18 +152,7 @@ func _on_dropdown_menu_submit_pressed() -> void:
 	EventBus.give_item.emit(current_drink)
 	
 	
-	current_ingredients = []
-	container_selected = false
-	liquid.texture = null
-	dropdown_menu.play("fade_out")
-	match CURRENT_CONTAINER:
-		CONTAINERS.WINEGLASS:
-			wineglass.visible = false
-		CONTAINERS.GLASS:
-			glass_top.visible = false
-		CONTAINERS.TANKARD:
-			tankard_top.visible = false
-	CURRENT_CONTAINER = CONTAINERS.NULL
+	trash_item()
 	
 
 
@@ -191,18 +206,26 @@ func _on_mortar_pressed() -> void:
 	if CURRENT_POTION_COMPONENT != POTION_COMPONENTS.NULL && CURRENT_CRUSHED_POTION_COMPONENT == POTION_COMPONENTS.NULL:
 		match CURRENT_POTION_COMPONENT:
 			POTION_COMPONENTS.FIREPEPPERSEED:
+				firepepperseed_whole.visible = false
+				firepepperseed.disabled = true
 				firepepperseed.button_pressed = false
 				firepepperseed._on_pressed()
 				current_crushed_potion_component.texture = preload("res://assets/drink_craft_assets/potion_components/firepepperseed_crushed.PNG")
 			POTION_COMPONENTS.FORTIFLOWER:
+				fortiflower_whole.visible = false
+				fortiflower.disabled = true
 				fortiflower.button_pressed = false
 				fortiflower._on_pressed()
 				current_crushed_potion_component.texture = preload("res://assets/drink_craft_assets/potion_components/fortiflower_crushed.PNG")
 			POTION_COMPONENTS.GALEGRASS:
+				galegrass_whole.visible = false
+				galegrass.disabled = true
 				galegrass.button_pressed = false
 				galegrass._on_pressed()
 				current_crushed_potion_component.texture = preload("res://assets/drink_craft_assets/potion_components/galegrass_crushed.PNG")
 			POTION_COMPONENTS.HARTROOT:
+				hartroot_whole.visible = false
+				hartroot.disabled = true
 				hartroot.button_pressed = false
 				hartroot._on_pressed()
 				current_crushed_potion_component.texture = preload("res://assets/drink_craft_assets/potion_components/hartroot_crushed.PNG")
@@ -233,18 +256,26 @@ func _on_knife_pressed() -> void:
 	if CURRENT_POTION_COMPONENT != POTION_COMPONENTS.NULL && CURRENT_CHOPPED_POTION_COMPONENT == POTION_COMPONENTS.NULL:
 		match CURRENT_POTION_COMPONENT:
 			POTION_COMPONENTS.FIREPEPPERSEED:
+				firepepperseed_whole.visible = false
+				firepepperseed.disabled = true
 				firepepperseed.button_pressed = false
 				firepepperseed._on_pressed()
 				current_chopped_potion_component.texture = preload("res://assets/drink_craft_assets/potion_components/firepepperseed_chopped.PNG")
 			POTION_COMPONENTS.FORTIFLOWER:
+				fortiflower_whole.visible = false
+				fortiflower.disabled = true
 				fortiflower.button_pressed = false
 				fortiflower._on_pressed()
 				current_chopped_potion_component.texture = preload("res://assets/drink_craft_assets/potion_components/fortiflower_chopped.PNG")
 			POTION_COMPONENTS.GALEGRASS:
+				galegrass_whole.visible = false
+				galegrass.disabled = true
 				galegrass.button_pressed = false
 				galegrass._on_pressed()
 				current_chopped_potion_component.texture = preload("res://assets/drink_craft_assets/potion_components/galegrass_chopped.PNG")
 			POTION_COMPONENTS.HARTROOT:
+				hartroot_whole.visible = false
+				hartroot.disabled = true
 				hartroot.button_pressed = false
 				hartroot._on_pressed()
 				current_chopped_potion_component.texture = preload("res://assets/drink_craft_assets/potion_components/hartroot_chopped.PNG")
@@ -296,5 +327,8 @@ func create_drink()->void:
 		current_drink = drink
 
 
-func _on_button_pressed() -> void:
-	pass # Replace with function body.
+func _ready() -> void:
+	EventBus.order_item.connect(on_item_order)
+
+func on_item_order(item: TavernItem) ->void:
+	card.text = item.ingredient_name

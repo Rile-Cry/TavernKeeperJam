@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dlij03dqyy1co"]
+[gd_scene load_steps=37 format=3 uid="uid://dlij03dqyy1co"]
 
 [ext_resource type="Texture2D" uid="uid://bs6aekthjg2k5" path="res://assets/backgrounds/drinkcounter_background.PNG" id="1_1pwch"]
 [ext_resource type="Script" path="res://scenes/crafting_games/main_crafting_games.gd" id="1_wmeup"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://scenes/crafting_games/glowy_button_toggle.gd" id="28_eqbmf"]
 [ext_resource type="ButtonGroup" uid="uid://dpfmfxwsmgk3w" path="res://shaders/crafting_game/selected_potion_comp.tres" id="28_qgbqt"]
 [ext_resource type="Texture2D" uid="uid://bdy8cmd3yy6jn" path="res://assets/drink_craft_assets/trash_icon.PNG" id="29_54ny6"]
+[ext_resource type="Script" path="res://scenes/crafting_games/mortar.gd" id="30_jx7ws"]
 
 [sub_resource type="Animation" id="Animation_m2c5c"]
 length = 0.001
@@ -247,17 +248,6 @@ texture = ExtResource("5_q2434")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="GlassShelf" type="TextureRect" parent="Objects"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_ayeet")
-expand_mode = 2
-stretch_mode = 4
-
 [node name="IngredientCloth" type="TextureRect" parent="Objects"]
 layout_mode = 1
 anchors_preset = 15
@@ -299,6 +289,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_866yr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="GlassShelf" type="TextureRect" parent="Objects"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ayeet")
 expand_mode = 2
 stretch_mode = 4
 
@@ -847,7 +848,7 @@ button_group = ExtResource("28_qgbqt")
 script = ExtResource("28_eqbmf")
 texture_node = NodePath("../Items/PotionComponent/HartrootWhole")
 
-[node name="Mortar" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
+[node name="Mortar" type="Button" parent="." node_paths=PackedStringArray("texture_node", "texture_node_2")]
 layout_mode = 0
 offset_left = 1092.0
 offset_top = 456.0
@@ -865,8 +866,9 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
-script = ExtResource("27_ltgnc")
+script = ExtResource("30_jx7ws")
 texture_node = NodePath("../Objects/MortarPestle")
+texture_node_2 = NodePath("../Items/PotionComponent/CurrentCrushedPotionComponent")
 
 [node name="Knife" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
 layout_mode = 0
@@ -918,6 +920,17 @@ texture_node = NodePath("../Items/PotionComponent/CurrentChoppedPotionComponent"
 visible = false
 position = Vector2(450, 417.5)
 shape = SubResource("RectangleShape2D_f4gyo")
+
+[node name="Card" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 31.0
+offset_right = 225.0
+offset_bottom = 132.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+scroll_active = false
 
 [connection signal="pressed" from="Tankard" to="." method="_on_tankard_pressed"]
 [connection signal="pressed" from="Glass" to="." method="_on_glass_pressed"]

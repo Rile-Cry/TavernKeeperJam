@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_nxcp0"]
 [ext_resource type="Resource" uid="uid://bo5vtganuh2r7" path="res://components/crafting/items/ingredients/tankard.tres" id="2_vr6e1"]
-[ext_resource type="Resource" uid="uid://rhgcnfka23sm" path="res://components/crafting/items/ingredients/ale.tres" id="3_r3hrc"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/ale.tres" id="3_r3hrc"]
 [ext_resource type="Resource" uid="uid://i4jtxvf4dfy7" path="res://components/crafting/items/ingredients/crushed_fortiflower.tres" id="4_88vh3"]
 [ext_resource type="Resource" uid="uid://cmdklh2aelan5" path="res://components/crafting/items/ingredients/crushed_hartroot.tres" id="5_3tn2q"]
 [ext_resource type="Resource" uid="uid://qhwagkwhw4lc" path="res://components/crafting/items/ingredients/tankard_with_strength_ale.tres" id="6_odtyv"]

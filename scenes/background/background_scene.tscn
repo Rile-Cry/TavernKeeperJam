@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://br3355xqnwqvm" path="res://assets/backgrounds/day_lighting/day_2_screen_5percent.PNG" id="1_c1l4j"]
 [ext_resource type="Texture2D" uid="uid://ch3867lm2ofpv" path="res://assets/backgrounds/barcounter.PNG" id="2_44wrj"]
 [ext_resource type="Texture2D" uid="uid://c21da2taq0qp0" path="res://assets/ui_dialogue_menus/dialogue_box.PNG" id="3_e3c27"]
-[ext_resource type="Texture2D" uid="uid://butl7f1vyv5j5" path="res://assets/backgrounds/day_lighting/day_1_add_60percent.PNG" id="4_ryjk1"]
-[ext_resource type="Texture2D" uid="uid://c60wnpj18gkv5" path="res://assets/backgrounds/evening_lighting/evening_1_add_60percent.PNG" id="5_0baaw"]
 [ext_resource type="Texture2D" uid="uid://bqcv5atrwjce1" path="res://assets/backgrounds/evening_lighting/evening_2_lightercolor_5percent.PNG" id="5_8es8a"]
+[ext_resource type="Texture2D" uid="uid://bhmaeuhsjsy8b" path="res://assets/backgrounds/bar/lighting/day.PNG" id="5_lfk6v"]
 [ext_resource type="Texture2D" uid="uid://df83dth21ahgl" path="res://assets/backgrounds/border.PNG" id="6_jg7i6"]
-[ext_resource type="Texture2D" uid="uid://di0jsvn7gcrw" path="res://assets/backgrounds/night_lighting/night_1_add_85percent.PNG" id="7_lbp3o"]
+[ext_resource type="Texture2D" uid="uid://b1mtvttqu3bv4" path="res://assets/backgrounds/bar/lighting/evening.PNG" id="7_cngrt"]
 [ext_resource type="Texture2D" uid="uid://q61ips01hi66" path="res://assets/backgrounds/night_lighting/night_2_lightercolor_25percent.PNG" id="8_mnb7x"]
+[ext_resource type="Texture2D" uid="uid://ic3xbncafvhm" path="res://assets/backgrounds/bar/lighting/night.PNG" id="8_u11fj"]
 [ext_resource type="Texture2D" uid="uid://n5p60ynjnr5m" path="res://assets/backgrounds/night_lighting/night_3_multiply_25percent.PNG" id="9_mi71u"]
 [ext_resource type="Script" path="res://scenes/background/queue_manager.gd" id="11_o8uod"]
 [ext_resource type="Script" path="res://scenes/background/button.gd" id="11_ow2to"]
@@ -425,7 +425,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_ryjk1")
+texture = ExtResource("5_lfk6v")
 expand_mode = 2
 stretch_mode = 4
 
@@ -461,7 +461,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_0baaw")
+texture = ExtResource("7_cngrt")
 expand_mode = 2
 stretch_mode = 4
 
@@ -483,7 +483,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_lbp3o")
+texture = ExtResource("8_u11fj")
 expand_mode = 2
 stretch_mode = 4
 
@@ -565,6 +565,7 @@ script = ExtResource("11_ow2to")
 item = SubResource("Resource_tv04g")
 
 [node name="Button2" type="Button" parent="Debug"]
+visible = false
 offset_left = 1106.0
 offset_top = 85.0
 offset_right = 1253.0
@@ -573,11 +574,13 @@ text = "start queue signal"
 script = ExtResource("11_u452s")
 
 [node name="QueueManager" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("11_o8uod")
 npc_amount = 3
 available_dishes = Array[ExtResource("13_fgn81")]([ExtResource("17_b7n4p"), ExtResource("18_5nr2g"), ExtResource("19_pr4mh")])
 
 [node name="GameManager" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

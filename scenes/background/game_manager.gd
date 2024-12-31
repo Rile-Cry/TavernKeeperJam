@@ -14,11 +14,11 @@ func _ready() -> void:
 	EventBus.order_item.connect(on_item_order)
 	
 
-func on_start_queue()->void:
+func on_start_queue(npc_amount: int)->void:
 	if !queue_started:
 		queue_started = true
 		#print("queue started")
-		queue_manager.start_queue()
+		queue_manager.start_queue(npc_amount)
 		update_label()
 	else:
 		#print("queue already started")

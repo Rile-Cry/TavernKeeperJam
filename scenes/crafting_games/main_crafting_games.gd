@@ -1,5 +1,13 @@
 extends Control
 
+enum CraftSounds {
+	MUG,
+	GLASS,
+	PLACE_1,
+	PLACE_2,
+	PLACE_3
+}
+
 @onready var glass_top: TextureRect = $Items/Glass/GlassTop
 @onready var tankard_top: TextureRect = $Items/Tankard/TankardTop
 @onready var wineglass: TextureRect = $Items/Wineglass/Wineglass
@@ -113,6 +121,7 @@ func _on_tankard_pressed() -> void:
 		container_selected = true
 		CURRENT_CONTAINER = CONTAINERS.TANKARD
 		tankard_top.visible = true
+		_play_sound(CraftSounds.PLACE_1)
 		
 
 
@@ -351,7 +360,13 @@ func create_drink()->void:
 		current_drink = RUINED_DRINK
 	elif drink != null:
 		liquid.texture = drink_results[drink]
-		
+		match(CURRENT_CONTAINER):
+			CONTAINERS.GLASS:
+				_play_sound(CraftSounds.GLASS)
+			CONTAINERS.WINEGLASS:
+				_play_sound(CraftSounds.GLASS)
+			CONTAINERS.TANKARD:
+				_play_sound(CraftSounds.MUG)
 		current_drink = drink
 
 
@@ -380,3 +395,17 @@ func _on_check_recipe_pressed() -> void:
 		crafting_recipe_layer.visible = true
 	
 	pass # Replace with function body.
+
+
+func _play_sound(sound: CraftSounds) -> void:
+	match(sound):
+		CraftSounds.MUG:
+			SoundPool.play("sfx_ale_beer.wav")
+		CraftSounds.GLASS:
+			SoundPool.play("sfx_bottles.wav")
+		CraftSounds.PLACE_1:
+			SoundPool.play("sfx_mug_1.wav")
+		CraftSounds.PLACE_2:
+			SoundPool.play("sfx_mug_2.wav")
+		CraftSounds.PLACE_3:
+			SoundPool.play("sfx_mug_3.wav")

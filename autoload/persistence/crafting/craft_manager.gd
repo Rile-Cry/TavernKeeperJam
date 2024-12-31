@@ -100,5 +100,8 @@ func get_recipe(item: TavernItem)-> TavernRecipe:
 
 
 func _ready() -> void:
+	print("starting...")
 	_load_ingredients()
+	print("ingredients loaded...")
 	_load_recipes()
+	print("recipes loaded...")

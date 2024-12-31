@@ -21,8 +21,8 @@ var npc_texture_array : Array[Texture2D] = [
 
 var remaining_customers : int
 var current_customer : Customer
-func start_queue()->void:
-	remaining_customers = npc_amount
+func start_queue(arg_npc_amount: int = npc_amount)->void:
+	remaining_customers = arg_npc_amount
 	create_customer()
 
 
@@ -57,3 +57,7 @@ func leave_customer() ->void:
 		#print("*customer walks away*")
 		current_customer.queue_free()
 	remaining_customers-=1
+
+
+func _ready() -> void:
+	GlobalGameEvents.queue_manager_ready.emit()

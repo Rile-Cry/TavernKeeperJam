@@ -1,3 +1,6 @@
+if {TUTORIAL.ThirdCustomer} == true:
+elif {TUTORIAL.SecondCustomer} == true:
+elif {TUTORIAL.FirstCustomer} == true:
 [i]Water trickles over rounded stones. Thistle buds poke up through the mud.[/i]
 [i]Voices, soft as the murmuring creek. You strain your ears, but they're gone as quickly as they came.[/i]
 [i]Clinking glass. The roar of a fire as it feeds from a bellows.[/i]
@@ -17,6 +20,7 @@ label FirstChoice
 	player: I can see the farmers already at work in their fields, but there's not many other out and about yet.
 	jump FirstChoice
 - Get dressed and go downstairs
+[background arg="res://assets/backgrounds/bar/barcounter_background.PNG" fade="0.0"]
 join old_lady_aga (talk) center
 old_lady_aga: Ah, awake? Good. See that you continue to be punctual. I would rather not have to fetch you myself. My old knees can only take me up those stairs so many times.
 old_lady_aga: We open at noon, so there's no time to waste. Today I will show you how to tend the bar, and tomorrow I expect you to manage on your own.
@@ -41,3 +45,46 @@ label AgaQuestions
 	old_lady_aga: Anyways. Anything else?
 	jump AgaQuestions
 - No, I'm ready to get started.
+old_lady_aga: About time. Well, go on then. Step behind the counter.
+- Go through tutorial
+	[background fade="0.0"]
+	old_lady_aga: This is where you'll meet each patron that comes up to the bar. You will take their order - - and mind the details.
+	[signal arg="move_to_counter"]
+	old_lady_aga: This is where you will pour each drink. First, you'll take the appropriate container off the top shelf. The tankard is for ale, beer, and cider. The short glass is for gin and other liquor. The wineglass is for wine.
+	old_lady_aga: Then you'll pour the patron's drink. It's been a while since I had a restock, but still, mind that you choose the right one.
+	[signal arg="move_to_bar"]
+	old_lady_aga: Once you're done, and you've double-checked the order, bring the drink to the customer at the bar counter. It's as simple as that. I'd be surprised if you managed to find a way to mess it up.
+	old_lady_aga: Well, nothing teaches like experience. Here comes the first patron of the day. I'll be here, but don't expect my help.
+	[signal arg="start_tutorial"]
+- Skip tutorial
+[end_timeline]
+label FirstCustomer
+join old_lady_aga center
+if {TUTORIAL.Quality} == true:
+	old_lady_aga: Hm. Impressive. Do it again.
+else:
+	old_lady_aga: I expect better than this. Try again.
+[end_timeline]
+label SecondCustomer
+join old_lady_aga center
+if {TUTORIAL.Quality} == true:
+	old_lady_aga: Well done. Once more, now.
+else:
+	old_lady_aga: I expect better than this. Once more, now.
+[end_timeline]
+label ThidCustomerArrive
+join old_lady_aga center
+old_lady_aga: That's all the customers we'll get for today.
+[end_timeline]
+label ThirdCustomer
+join old_lady_aga center
+old_lady_aga: I supposed you're ready now. I can't say I have high hopes . . . but you will be sufficient.
+player: . . . Only Sufficient?
+old_lady_aga: Heh. There's time yet to prove me wrong.
+old_lady_aga: Off with you, now. Don't be late tomorrow morning.
+player: Old Lady Aga? How did you manage this on your own?
+old_lady_aga: Hah. Aren't you full of questions?
+old_lady_aga: Goodnight, {Var.PlayerName}. Remember, bright and early tomorrow.
+leave old_lady_aga
+player: . . .
+[end_timeline]

@@ -68,4 +68,8 @@ func add_stock(item: String, value: int) -> void:
 			_stock[item] += value
 	else:
 		_stock[item] = value
+
+func set_player_name(plr_name: String) -> void:
+	set_global_variable("name", plr_name)
+	Dialogic.VAR.PlayerName = plr_name
 #endregion

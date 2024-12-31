@@ -13,7 +13,7 @@ config_version=5
 config/name="TavernKeeperJam"
 config/description="is a comprehensive Godot project template designed to streamline your development process. It includes essential features, optimized settings, and best practices to help you create amazing indie game"
 config/version="0.1.0"
-run/main_scene="res://scenes/entry_point/game-entry_point.tscn"
+run/main_scene="res://ui/menus/layouts/simple/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -34,6 +34,11 @@ SettingsManager="*res://autoload/persistence/settings/settings_manager.gd"
 GlobalDayNightClock="*res://autoload/general/global_day_night_clock.gd"
 CraftManager="*res://autoload/persistence/crafting/craft_manager.gd"
 EventBus="*res://autoload/event_bus/event_bus.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+
+[debug]
+
+settings/stdout/verbose_stdout=true
 
 [dialogic]
 
@@ -56,10 +61,17 @@ variables={
 "One": true
 },
 "FelixName": "Scruffy Adventurer",
-"PlayerName": ""
+"PlayerName": "",
+"TUTORIAL": {
+"FirstCustomer": false,
+"Quality": false,
+"SecondCustomer": false,
+"ThidCustomerArrived": false,
+"ThirdCustomer": false
 }
-layout/style_list=["res://components/dialog/test_style.tres"]
-layout/default_style="res://components/dialog/test_style.tres"
+}
+layout/style_list=["res://components/dialog/styles/tk_style.tres"]
+layout/default_style="res://components/dialog/styles/tk_style.tres"
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -90,6 +102,10 @@ window/size/viewport_height=720
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [file_customization]
 

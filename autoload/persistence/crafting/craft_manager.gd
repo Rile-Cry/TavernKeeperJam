@@ -21,6 +21,7 @@ func _recipe_check(ingredient_list: Array[TavernItem], process: TavernItem.PROCE
 	for recipe in recipes:
 		
 		if recipes[recipe].process_method == process:
+			#print("star checking has all ----------------------------")
 			if has_all(recipes[recipe].ingredients, ingredient_list) and recipes[recipe].ingredients.size() == ingredient_list.size():
 				return recipes[recipe]
 	return null
@@ -57,10 +58,45 @@ func _load_dir(path: String, sub_dir: String = "") -> Array[String]:
 		return []
 
 func has_all(array1 : Array[TavernItem], array2: Array[TavernItem] ) ->bool:
+	var array_contains : bool = false
 	for item in array1:
-		if !array2.has(item):
+		array_contains = false
+		#print(item.ingredient_name)
+		for item2 in array2:
+			if item != null && item2 !=null :
+				if item.ingredient_name == item2.ingredient_name:
+					#print(item.ingredient_name + " == " + item2.ingredient_name)
+					array_contains = true
+		if !array_contains:
+			#print("didnt find correct item")
 			return false
+			
+	#print("found correct item")
 	return true
+
+
+func possible_to_continue_recipe(ingredient_list: Array[String])->bool:
+	var craft_list : Array[TavernItem] = []
+	for ingredient in ingredient_list:
+		craft_list.append(ingredients[ingredient])
+	
+	for recipe in recipes:
+		
+		
+	
+		if has_all(craft_list, recipes[recipe].ingredients) and recipes[recipe].ingredients.size() > ingredient_list.size():
+			return true
+	
+	return false
+
+func get_recipe(item: TavernItem)-> TavernRecipe:
+	
+	return recipes[item.ingredient_name]
+	
+	
+
+
+
 
 
 func _ready() -> void:

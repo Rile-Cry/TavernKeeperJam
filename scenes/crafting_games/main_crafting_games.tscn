@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dlij03dqyy1co"]
+[gd_scene load_steps=39 format=3 uid="uid://dlij03dqyy1co"]
 
 [ext_resource type="Texture2D" uid="uid://bs6aekthjg2k5" path="res://assets/backgrounds/drinkcounter_background.PNG" id="1_1pwch"]
 [ext_resource type="Script" path="res://scenes/crafting_games/main_crafting_games.gd" id="1_wmeup"]
@@ -30,6 +30,7 @@
 [ext_resource type="ButtonGroup" uid="uid://dpfmfxwsmgk3w" path="res://shaders/crafting_game/selected_potion_comp.tres" id="28_qgbqt"]
 [ext_resource type="Texture2D" uid="uid://bdy8cmd3yy6jn" path="res://assets/drink_craft_assets/trash_icon.PNG" id="29_54ny6"]
 [ext_resource type="Script" path="res://scenes/crafting_games/mortar.gd" id="30_jx7ws"]
+[ext_resource type="Script" path="res://scenes/crafting_games/crafting_recipe.gd" id="31_aegbf"]
 
 [sub_resource type="Animation" id="Animation_m2c5c"]
 length = 0.001
@@ -161,6 +162,8 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4gyo"]
 size = Vector2(168, 215)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dys12"]
 
 [node name="MainCraftingGames" type="Control"]
 layout_mode = 3
@@ -912,6 +915,39 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
 script = ExtResource("27_ltgnc")
 texture_node = NodePath("../Items/PotionComponent/CurrentChoppedPotionComponent")
 
+[node name="Card" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 31.0
+offset_right = 225.0
+offset_bottom = 132.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+scroll_active = false
+
+[node name="CheckRecipe" type="Button" parent="." node_paths=PackedStringArray("texture_node")]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 243.0
+offset_bottom = 141.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_efysb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efysb")
+script = ExtResource("27_ltgnc")
+texture_node = NodePath("../Objects/Notecard")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DropdownMenuArea" type="Area2D" parent="CanvasLayer"]
@@ -921,16 +957,45 @@ visible = false
 position = Vector2(450, 417.5)
 shape = SubResource("RectangleShape2D_f4gyo")
 
-[node name="Card" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 31.0
-offset_right = 225.0
-offset_bottom = 132.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-scroll_active = false
+[node name="CraftingRecipe" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("31_aegbf")
+
+[node name="ColorRect" type="ColorRect" parent="CraftingRecipe"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0588235, 0.0588235, 0.501961)
+
+[node name="CraftingRecipe" type="Label" parent="CraftingRecipe"]
+offset_left = 352.0
+offset_top = 506.0
+offset_right = 949.0
+offset_bottom = 658.0
+theme_override_font_sizes/font_size = 28
+text = "Recipe:"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="CraftingRecipe"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dys12")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dys12")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dys12")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dys12")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_dys12")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_dys12")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dys12")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_dys12")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dys12")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_dys12")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dys12")
 
 [connection signal="pressed" from="Tankard" to="." method="_on_tankard_pressed"]
 [connection signal="pressed" from="Glass" to="." method="_on_glass_pressed"]
@@ -949,5 +1014,7 @@ scroll_active = false
 [connection signal="pressed" from="Mortar" to="." method="_on_mortar_pressed"]
 [connection signal="pressed" from="Knife" to="." method="_on_knife_pressed"]
 [connection signal="pressed" from="ChoppedPotionComponent" to="." method="_on_chopped_potion_component_pressed"]
+[connection signal="pressed" from="CheckRecipe" to="." method="_on_check_recipe_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/DropdownMenuArea" to="." method="_on_dropdown_menu_area_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/DropdownMenuArea" to="." method="_on_dropdown_menu_area_mouse_exited"]
+[connection signal="pressed" from="CraftingRecipe/Button" to="CraftingRecipe" method="_on_button_pressed"]

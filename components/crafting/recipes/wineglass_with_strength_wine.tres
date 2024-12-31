@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TavernRecipe" load_steps=8 format=3 uid="uid://dts8rj0kl3bww"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_t3bvo"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/wineglass.tres" id="2_cpfjl"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/wine.tres" id="3_wh3ij"]
+[ext_resource type="Resource" uid="uid://cp7aehk00kvyy" path="res://components/crafting/items/ingredients/chopped_fortiflower.tres" id="4_uww8m"]
+[ext_resource type="Resource" uid="uid://birym880t6dlm" path="res://components/crafting/items/ingredients/chopped_hartroot.tres" id="5_8prii"]
+[ext_resource type="Script" path="res://components/crafting/scripts/recipe_resource.gd" id="6_8s4hk"]
+[ext_resource type="Resource" uid="uid://kmxv3rjohmo" path="res://components/crafting/items/ingredients/wineglass_with_strength_wine.tres" id="6_i4dnb"]
+
+[resource]
+script = ExtResource("6_8s4hk")
+ingredients = Array[ExtResource("1_t3bvo")]([ExtResource("2_cpfjl"), ExtResource("3_wh3ij"), ExtResource("4_uww8m"), ExtResource("5_8prii")])
+process_method = 4
+result = ExtResource("6_i4dnb")

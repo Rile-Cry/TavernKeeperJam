@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://cx3t3dmms6a1g"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_m4tt1"]
+
+[resource]
+script = ExtResource("1_m4tt1")
+ingredient_name = "Crushed galegrass"
+cost = 0
+quality = 0
+description = ""
+processing = Array[int]([])
+fame_required = 0

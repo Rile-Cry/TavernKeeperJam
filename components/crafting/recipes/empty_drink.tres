@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TavernRecipe" load_steps=4 format=3 uid="uid://bectjk4cg1a3u"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_ve55q"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/empty_drink.tres" id="2_v64jl"]
+[ext_resource type="Script" path="res://components/crafting/scripts/recipe_resource.gd" id="4_o2kek"]
+
+[resource]
+script = ExtResource("4_o2kek")
+ingredients = Array[ExtResource("1_ve55q")]([null])
+process_method = 4
+result = ExtResource("2_v64jl")

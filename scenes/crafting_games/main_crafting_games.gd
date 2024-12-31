@@ -30,6 +30,10 @@ extends Control
 @onready var hartroot_whole: TextureRect = $Items/PotionComponent/HartrootWhole
 @onready var potion_components : Array[TextureRect] = [firepepperseed_whole, fortiflower_whole,galegrass_whole, hartroot_whole]
 
+#recipe
+@onready var crafting_recipe: Label = $CraftingRecipe/CraftingRecipe
+@onready var crafting_recipe_layer: CanvasLayer = $CraftingRecipe
+
 var container_selected : bool = false
 
 enum CONTAINERS { GLASS, TANKARD, WINEGLASS, NULL }
@@ -59,6 +63,18 @@ const TANKARD_WITH_FIREPEPPER_ALE = preload("res://components/crafting/items/ing
 const TANKARD_WITH_FIREPEPPER_BEER = preload("res://components/crafting/items/ingredients/tankard_with_firepepper_beer.tres")
 const TANKARD_WITH_FIREPEPPER_CIDER = preload("res://components/crafting/items/ingredients/tankard_with_firepepper_cider.tres")
 const WINEGLASS_WITH_FIREPEPPER_WINE = preload("res://components/crafting/items/ingredients/wineglass_with_firepepper_wine.tres")
+const GLASS_WITH_STRENGTH_GIN = preload("res://components/crafting/items/ingredients/glass_with_strength_gin.tres")
+const TANKARD_WITH_STRENGTH_ALE = preload("res://components/crafting/items/ingredients/tankard_with_strength_ale.tres")
+const TANKARD_WITH_STRENGTH_BEER = preload("res://components/crafting/items/ingredients/tankard_with_strength_beer.tres")
+const TANKARD_WITH_STRENGTH_CIDER = preload("res://components/crafting/items/ingredients/tankard_with_strength_cider.tres")
+const WINEGLASS_WITH_STRENGTH_WINE = preload("res://components/crafting/items/ingredients/wineglass_with_strength_wine.tres")
+
+const GLASS_WITH_SWIFTNESS_GIN = preload("res://components/crafting/items/ingredients/glass_with_swiftness_gin.tres")
+const TANKARD_WITH_SWIFTNESS_ALE = preload("res://components/crafting/items/ingredients/tankard_with_swiftness_ale.tres")
+const TANKARD_WITH_SWIFTNESS_BEER = preload("res://components/crafting/items/ingredients/tankard_with_swiftness_beer.tres")
+const TANKARD_WITH_SWIFTNESS_CIDER = preload("res://components/crafting/items/ingredients/tankard_with_swiftness_cider.tres")
+const WINEGLASS_WITH_SWIFTNESS_WINE = preload("res://components/crafting/items/ingredients/wineglass_with_swiftness_wine.tres")
+
 @onready var drink_results = {
 	GIN:preload("res://assets/drink_craft_assets/plain_drinks/glass_gin_only.PNG"),
 	WINE:preload("res://assets/drink_craft_assets/plain_drinks/wineglass_wine_only.PNG"),
@@ -70,12 +86,22 @@ const WINEGLASS_WITH_FIREPEPPER_WINE = preload("res://components/crafting/items/
 	TANKARD_WITH_FIREPEPPER_BEER:preload("res://assets/drink_craft_assets/fire_drinks/tankard_with_fire_beer.PNG"),
 	TANKARD_WITH_FIREPEPPER_CIDER:preload("res://assets/drink_craft_assets/fire_drinks/tankard_with_fire_cider.PNG"),
 	WINEGLASS_WITH_FIREPEPPER_WINE:preload("res://assets/drink_craft_assets/fire_drinks/wineglass_fire_wine_only.PNG"),
-	
+	GLASS_WITH_STRENGTH_GIN:preload("res://assets/drink_craft_assets/strength_drinks/glass_strength_gin_only.PNG"),
+	TANKARD_WITH_STRENGTH_ALE:preload("res://assets/drink_craft_assets/strength_drinks/tankard_with_strength_ale.PNG"),
+	TANKARD_WITH_STRENGTH_BEER:preload("res://assets/drink_craft_assets/strength_drinks/tankard_with_strength_beer.PNG"),
+	TANKARD_WITH_STRENGTH_CIDER:preload("res://assets/drink_craft_assets/strength_drinks/tankard_with_strength_cider.PNG"),
+	WINEGLASS_WITH_STRENGTH_WINE:preload("res://assets/drink_craft_assets/strength_drinks/wineglass_strength_wine_only.PNG"),
+	GLASS_WITH_SWIFTNESS_GIN:preload("res://assets/drink_craft_assets/swiftness_drinks/glass_swiftness_gin_only.PNG"),
+	TANKARD_WITH_SWIFTNESS_ALE:preload("res://assets/drink_craft_assets/swiftness_drinks/tankard_with_swiftness_ale.PNG"),
+	TANKARD_WITH_SWIFTNESS_BEER:preload("res://assets/drink_craft_assets/swiftness_drinks/tankard_with_swiftness_beer.PNG"),
+	TANKARD_WITH_SWIFTNESS_CIDER:preload("res://assets/drink_craft_assets/swiftness_drinks/tankard_with_swiftness_cider.PNG"),
+	WINEGLASS_WITH_SWIFTNESS_WINE:preload("res://assets/drink_craft_assets/swiftness_drinks/wineglass_swiftness_wine_only.PNG"),
 	
 	
 }
 
 var current_drink = EMPTY_DRINK
+var needed_drink : TavernItem
 
 var current_ingredients : Array[String] = []
 
@@ -239,13 +265,15 @@ func _on_mortar_pressed() -> void:
 			POTION_COMPONENTS.FIREPEPPERSEED:
 				current_ingredients.append("Crushed firepepper")
 				create_drink()
-				#print("added firepepper")
 			POTION_COMPONENTS.FORTIFLOWER:
-				print("added fortiflower")
+				current_ingredients.append("Crushed fortiflower")
+				create_drink()
 			POTION_COMPONENTS.GALEGRASS:
-				print("added galegrass")
+				current_ingredients.append("Crushed galegrass")
+				create_drink()
 			POTION_COMPONENTS.HARTROOT:
-				print("added hartroot")
+				current_ingredients.append("Crushed hartroot")
+				create_drink()
 				
 		
 		
@@ -292,14 +320,14 @@ func _on_chopped_potion_component_pressed() -> void:
 				current_ingredients.append("Chopped firepepper")
 				create_drink()
 			POTION_COMPONENTS.FORTIFLOWER:
-				
-				print("added CUT fortiflower")
+				current_ingredients.append("Chopped fortiflower")
+				create_drink()
 			POTION_COMPONENTS.GALEGRASS:
-				
-				print("added CUT galegrass")
+				current_ingredients.append("Chopped galegrass")
+				create_drink()
 			POTION_COMPONENTS.HARTROOT:
-				
-				print("added CUT hartroot")
+				current_ingredients.append("Chopped hartroot")
+				create_drink()
 				
 		
 		
@@ -312,7 +340,7 @@ func create_drink()->void:
 	var drink = CraftManager.craft(current_ingredients, TavernItem.PROCESS_TYPE.MIXING)
 #	for string in current_ingredients:
 #		print(string)
-	if drink == null:
+	if drink == null && !CraftManager.possible_to_continue_recipe(current_ingredients):
 		match CURRENT_CONTAINER:
 			CONTAINERS.WINEGLASS:
 				liquid.texture = preload("res://assets/drink_craft_assets/plain_drinks/wineglass_ruined_only.PNG")
@@ -321,7 +349,7 @@ func create_drink()->void:
 			CONTAINERS.TANKARD:
 				liquid.texture = preload("res://assets/drink_craft_assets/plain_drinks/tankard_ruined.PNG")
 		current_drink = RUINED_DRINK
-	else:
+	elif drink != null:
 		liquid.texture = drink_results[drink]
 		
 		current_drink = drink
@@ -331,4 +359,24 @@ func _ready() -> void:
 	EventBus.order_item.connect(on_item_order)
 
 func on_item_order(item: TavernItem) ->void:
+	needed_drink = item
 	card.text = item.ingredient_name
+
+
+func _on_check_recipe_pressed() -> void:
+	if needed_drink == null:
+		pass
+	else:
+		
+		var recipe : TavernRecipe= CraftManager.get_recipe(needed_drink)
+		crafting_recipe.text = ""
+		var i = 0
+		while recipe.ingredients.size() > i:
+			crafting_recipe.text +=recipe.ingredients[i].ingredient_name
+			i+=1
+			if (recipe.ingredients.size() != i ):
+				crafting_recipe.text += " + "
+		
+		crafting_recipe_layer.visible = true
+	
+	pass # Replace with function body.

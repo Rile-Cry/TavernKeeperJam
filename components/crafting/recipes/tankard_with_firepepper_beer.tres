@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="TavernRecipe" load_steps=7 format=3 uid="uid://bopdogp70cmqg"]
+[gd_resource type="Resource" script_class="TavernRecipe" load_steps=7 format=3 uid="uid://dsi2mkxklbp8k"]
 
 [ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_cep1d"]
-[ext_resource type="Resource" uid="uid://duccd8jumtgqh" path="res://components/crafting/items/ingredients/tankard.tres" id="2_vkfe8"]
-[ext_resource type="Resource" uid="uid://crhtmvkmugmdk" path="res://components/crafting/items/ingredients/beer.tres" id="3_2t7pt"]
-[ext_resource type="Resource" uid="uid://bhueoj7lpc5sr" path="res://components/crafting/items/ingredients/crushed_firepepper.tres" id="4_lqhmt"]
-[ext_resource type="Resource" uid="uid://b1ah63bje50us" path="res://components/crafting/items/ingredients/tankard_with_firepepper_beer.tres" id="5_0ye0d"]
+[ext_resource type="Resource" uid="uid://bo5vtganuh2r7" path="res://components/crafting/items/ingredients/tankard.tres" id="2_vkfe8"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/beer.tres" id="3_2t7pt"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/crushed_firepepper.tres" id="4_lqhmt"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/tankard_with_firepepper_beer.tres" id="5_0ye0d"]
 [ext_resource type="Script" path="res://components/crafting/scripts/recipe_resource.gd" id="6_b4fqg"]
 
 [resource]

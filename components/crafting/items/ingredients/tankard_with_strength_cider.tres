@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://bjwryi3rgejc1"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_0aouc"]
+
+[resource]
+script = ExtResource("1_0aouc")
+ingredient_name = "Strength cider"
+cost = 0
+quality = 0
+description = ""
+processing = Array[int]([])
+fame_required = 0

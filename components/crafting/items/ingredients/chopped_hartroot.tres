@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://birym880t6dlm"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_tlom5"]
+
+[resource]
+script = ExtResource("1_tlom5")
+ingredient_name = "Chopped hartroot"
+cost = 0
+quality = 0
+description = ""
+processing = Array[int]([])
+fame_required = 0

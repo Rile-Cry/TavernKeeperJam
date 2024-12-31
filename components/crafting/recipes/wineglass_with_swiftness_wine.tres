@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TavernRecipe" load_steps=7 format=3 uid="uid://c0iqrhi0747au"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_jx4qi"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/wineglass.tres" id="2_3aoh5"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/wine.tres" id="3_ilxxd"]
+[ext_resource type="Resource" uid="uid://7sgtscrsjp4x" path="res://components/crafting/items/ingredients/chopped_galegrass_a.tres" id="4_c8s4i"]
+[ext_resource type="Resource" uid="uid://ctttfdvs48fc6" path="res://components/crafting/items/ingredients/wineglass_with_swiftness_wine.tres" id="5_q7i12"]
+[ext_resource type="Script" path="res://components/crafting/scripts/recipe_resource.gd" id="7_q2umr"]
+
+[resource]
+script = ExtResource("7_q2umr")
+ingredients = Array[ExtResource("1_jx4qi")]([ExtResource("2_3aoh5"), ExtResource("3_ilxxd"), ExtResource("4_c8s4i")])
+process_method = 4
+result = ExtResource("5_q7i12")

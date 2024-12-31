@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TavernRecipe" load_steps=5 format=3 uid="uid://b32jr6w686gab"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_s8bi6"]
+[ext_resource type="Resource" uid="uid://bo5vtganuh2r7" path="res://components/crafting/items/ingredients/tankard.tres" id="2_d6tpb"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/ale.tres" id="3_j50f8"]
+[ext_resource type="Script" path="res://components/crafting/scripts/recipe_resource.gd" id="4_4xun8"]
+
+[resource]
+script = ExtResource("4_4xun8")
+ingredients = Array[ExtResource("1_s8bi6")]([ExtResource("2_d6tpb"), ExtResource("3_j50f8")])
+process_method = 4
+result = ExtResource("3_j50f8")

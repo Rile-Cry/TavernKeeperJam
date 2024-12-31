@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://ocuq7w4bn75t"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_y6utt"]
+
+[resource]
+script = ExtResource("1_y6utt")
+ingredient_name = "Fire wine"
+cost = 0
+quality = 0
+description = ""
+processing = Array[int]([])
+fame_required = 0

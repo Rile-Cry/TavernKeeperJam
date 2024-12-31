@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0qgbmvagse3c"]
+
+[ext_resource type="PackedScene" uid="uid://bfi28jisx373r" path="res://scenes/background/background_scene.tscn" id="1_fk1jj"]
+[ext_resource type="PackedScene" uid="uid://dlij03dqyy1co" path="res://scenes/crafting_games/main_crafting_games.tscn" id="2_1u81s"]
+[ext_resource type="Script" path="res://scenes/main/gameplay_prototype/button.gd" id="3_owlq7"]
+
+[sub_resource type="Animation" id="Animation_0gna0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_wahd6"]
+resource_name = "move_to_bar"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, 360), Vector2(1920, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_d0xpg"]
+resource_name = "move_to_counter"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1920, 360), Vector2(640, 360)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycgou"]
+_data = {
+"RESET": SubResource("Animation_0gna0"),
+"move_to_bar": SubResource("Animation_wahd6"),
+"move_to_counter": SubResource("Animation_d0xpg")
+}
+
+[node name="GameplayPrototype" type="Node"]
+
+[node name="BackgroundScene" parent="." instance=ExtResource("1_fk1jj")]
+
+[node name="MainCraftingGames" parent="." instance=ExtResource("2_1u81s")]
+offset_left = 1280.0
+offset_right = 1280.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1071.0
+offset_top = 584.0
+offset_right = 1248.0
+offset_bottom = 615.0
+text = "Go to crafting thing ->"
+script = ExtResource("3_owlq7")
+
+[node name="MovePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ycgou")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -1,0 +1,610 @@
+[gd_scene load_steps=42 format=3 uid="uid://bfi28jisx373r"]
+
+[ext_resource type="Texture2D" uid="uid://b5rvn44r1a7t7" path="res://assets/backgrounds/barcounter_background.PNG" id="1_6y1xs"]
+[ext_resource type="Texture2D" uid="uid://br3355xqnwqvm" path="res://assets/backgrounds/day_lighting/day_2_screen_5percent.PNG" id="1_c1l4j"]
+[ext_resource type="Texture2D" uid="uid://ch3867lm2ofpv" path="res://assets/backgrounds/barcounter.PNG" id="2_44wrj"]
+[ext_resource type="Texture2D" uid="uid://c21da2taq0qp0" path="res://assets/ui_dialogue_menus/dialogue_box.PNG" id="3_e3c27"]
+[ext_resource type="Texture2D" uid="uid://butl7f1vyv5j5" path="res://assets/backgrounds/day_lighting/day_1_add_60percent.PNG" id="4_ryjk1"]
+[ext_resource type="Texture2D" uid="uid://c60wnpj18gkv5" path="res://assets/backgrounds/evening_lighting/evening_1_add_60percent.PNG" id="5_0baaw"]
+[ext_resource type="Texture2D" uid="uid://bqcv5atrwjce1" path="res://assets/backgrounds/evening_lighting/evening_2_lightercolor_5percent.PNG" id="5_8es8a"]
+[ext_resource type="Texture2D" uid="uid://df83dth21ahgl" path="res://assets/backgrounds/border.PNG" id="6_jg7i6"]
+[ext_resource type="Texture2D" uid="uid://di0jsvn7gcrw" path="res://assets/backgrounds/night_lighting/night_1_add_85percent.PNG" id="7_lbp3o"]
+[ext_resource type="Texture2D" uid="uid://q61ips01hi66" path="res://assets/backgrounds/night_lighting/night_2_lightercolor_25percent.PNG" id="8_mnb7x"]
+[ext_resource type="Texture2D" uid="uid://n5p60ynjnr5m" path="res://assets/backgrounds/night_lighting/night_3_multiply_25percent.PNG" id="9_mi71u"]
+[ext_resource type="Script" path="res://scenes/background/queue_manager.gd" id="11_o8uod"]
+[ext_resource type="Script" path="res://scenes/background/button.gd" id="11_ow2to"]
+[ext_resource type="Script" path="res://scenes/background/button_2.gd" id="11_u452s"]
+[ext_resource type="Script" path="res://scenes/background/game_manager.gd" id="12_wtpik"]
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="13_fgn81"]
+[ext_resource type="Resource" uid="uid://cior4lalskl15" path="res://components/crafting/items/chopped_items/chopped_hartroot.tres" id="14_hw4tw"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/wine.tres" id="17_b7n4p"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/tankard_with_firepepper_ale.tres" id="18_5nr2g"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/beer.tres" id="19_pr4mh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lyaor"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yeavu"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fps8c"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jtq3l"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wrbg0"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xsrgc"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_yusbq"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8cqub"]
+gradient = SubResource("Gradient_yusbq")
+fill_from = Vector2(0.474359, 0.179487)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s54h0"]
+blend_mode = 3
+
+[sub_resource type="Animation" id="Animation_vmcy7"]
+resource_name = "DayTransition"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Night/Darkness:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(13.7667, 16.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.319)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Night/BlueLight:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(13.7333, 16.2333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Day:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333, 1.2, 4.76667, 6.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Evening:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.3, 7.8, 12.5333, 13.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Night:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(13.8333, 16.5667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4uqwe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Night/Darkness:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.319)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Night/BlueLight:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Day:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Evening:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Night:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8nb3"]
+_data = {
+"DayTransition": SubResource("Animation_vmcy7"),
+"RESET": SubResource("Animation_4uqwe")
+}
+
+[sub_resource type="Resource" id="Resource_tv04g"]
+script = ExtResource("13_fgn81")
+ingredient_name = "Banana"
+cost = 0
+quality = 0
+description = ""
+processing = Array[int]([])
+fame_required = 0
+
+[sub_resource type="Animation" id="Animation_jhmex"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Characters:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gf2g7"]
+resource_name = "person_appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Characters:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w17k1"]
+resource_name = "person_disappear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Characters:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ia63d"]
+_data = {
+"RESET": SubResource("Animation_jhmex"),
+"person_appear": SubResource("Animation_gf2g7"),
+"person_disappear": SubResource("Animation_w17k1")
+}
+
+[sub_resource type="Animation" id="Animation_ed4w4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBox:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogueBox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yp8kc"]
+resource_name = "dialogue_appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBox:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogueBox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.99, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kef48"]
+resource_name = "dialogue_disappear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBox:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogueBox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.99, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w5vnp"]
+_data = {
+"RESET": SubResource("Animation_ed4w4"),
+"dialogue_appear": SubResource("Animation_yp8kc"),
+"dialogue_disappear": SubResource("Animation_kef48")
+}
+
+[node name="BackgroundScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BarCounterBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6y1xs")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Characters" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="BarCounter" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_44wrj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="DialogueBox" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e3c27")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 177.0
+offset_right = 1077.0
+offset_bottom = 291.0
+bbcode_enabled = true
+text = "gageage"
+
+[node name="Day" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="DayScreen" type="TextureRect" parent="Day"]
+modulate = Color(1, 1, 1, 0.05)
+material = SubResource("CanvasItemMaterial_lyaor")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c1l4j")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="DayAdd" type="TextureRect" parent="Day"]
+modulate = Color(1, 1, 1, 0.6)
+material = SubResource("CanvasItemMaterial_yeavu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ryjk1")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Evening" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="EveningLighterColor" type="TextureRect" parent="Evening"]
+modulate = Color(1, 1, 1, 0.05)
+material = SubResource("CanvasItemMaterial_fps8c")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_8es8a")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="EveningAdd" type="TextureRect" parent="Evening"]
+modulate = Color(1, 1, 1, 0.6)
+material = SubResource("CanvasItemMaterial_jtq3l")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_0baaw")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Night" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="NightAdd" type="TextureRect" parent="Night"]
+modulate = Color(1, 1, 1, 0.85)
+material = SubResource("CanvasItemMaterial_wrbg0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_lbp3o")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NightLighterColor" type="TextureRect" parent="Night"]
+modulate = Color(1, 1, 1, 0.25)
+material = SubResource("CanvasItemMaterial_xsrgc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_mnb7x")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Darkness" type="PointLight2D" parent="Night"]
+position = Vector2(640, 360)
+scale = Vector2(20, 11.25)
+color = Color(1, 1, 1, 0.319)
+blend_mode = 1
+texture = SubResource("GradientTexture2D_8cqub")
+
+[node name="BlueLight" type="PointLight2D" parent="Night"]
+position = Vector2(640, 360)
+scale = Vector2(0.333333, 0.333333)
+color = Color(1, 1, 1, 0.36)
+texture = ExtResource("9_mi71u")
+
+[node name="NightMultiply" type="TextureRect" parent="Night"]
+visible = false
+material = SubResource("CanvasItemMaterial_s54h0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_mi71u")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Border" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_jg7i6")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="TimeTransitions" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a8nb3")
+}
+
+[node name="Debug" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="Debug"]
+visible = false
+offset_left = 910.0
+offset_top = 171.0
+offset_right = 1049.0
+offset_bottom = 202.0
+text = "give hartroot"
+script = ExtResource("11_ow2to")
+item = ExtResource("14_hw4tw")
+
+[node name="Button3" type="Button" parent="Debug"]
+visible = false
+offset_left = 921.0
+offset_top = 112.0
+offset_right = 1062.0
+offset_bottom = 143.0
+text = "give banana item"
+script = ExtResource("11_ow2to")
+item = SubResource("Resource_tv04g")
+
+[node name="Button2" type="Button" parent="Debug"]
+offset_left = 1106.0
+offset_top = 85.0
+offset_right = 1253.0
+offset_bottom = 116.0
+text = "start queue signal"
+script = ExtResource("11_u452s")
+
+[node name="QueueManager" type="Node" parent="."]
+script = ExtResource("11_o8uod")
+npc_amount = 3
+available_dishes = Array[ExtResource("13_fgn81")]([ExtResource("17_b7n4p"), ExtResource("18_5nr2g"), ExtResource("19_pr4mh")])
+
+[node name="GameManager" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("12_wtpik")
+
+[node name="Label" type="Label" parent="GameManager"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 10.0
+offset_right = 215.0
+offset_bottom = 33.0
+text = "Remaining customers: -1"
+
+[node name="NpcAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ia63d")
+}
+
+[node name="DialogueAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w5vnp")
+}
+
+[connection signal="pressed" from="Debug/Button" to="Debug/Button" method="_on_pressed"]
+[connection signal="pressed" from="Debug/Button3" to="Debug/Button3" method="_on_pressed"]
+[connection signal="pressed" from="Debug/Button2" to="Debug/Button2" method="_on_pressed"]

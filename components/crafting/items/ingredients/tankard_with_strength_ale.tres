@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://qhwagkwhw4lc"]
+
+[ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_02hmn"]
+
+[resource]
+script = ExtResource("1_02hmn")
+ingredient_name = "Strength ale"
+cost = 0
+quality = 0
+description = ""
+processing = Array[int]([])
+fame_required = 0

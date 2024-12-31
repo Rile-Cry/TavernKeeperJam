@@ -32,8 +32,8 @@ GlobalEffects="*res://autoload/effects/global_effects.tscn"
 SaveManager="*res://autoload/persistence/save/save_manager.gd"
 SettingsManager="*res://autoload/persistence/settings/settings_manager.gd"
 GlobalDayNightClock="*res://autoload/general/global_day_night_clock.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 CraftManager="*res://autoload/persistence/crafting/craft_manager.gd"
+EventBus="*res://autoload/event_bus/event_bus.gd"
 
 [dialogic]
 
@@ -90,10 +90,6 @@ window/size/viewport_height=720
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [file_customization]
 
@@ -229,3 +225,8 @@ locale/translations=PackedStringArray("res://localization/translations/de.po", "
 [physics]
 
 common/physics_ticks_per_second=120
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://dm6n4jlbwhpvl"]
+[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://34q0vrxc6wpc"]
 
 [ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_gmd7v"]
 
@@ -6,7 +6,7 @@
 script = ExtResource("1_gmd7v")
 ingredient_name = "Empty drink"
 cost = 0
-quality = 0
+quality = -30
 description = ""
 processing = Array[int]([])
 fame_required = 0

@@ -1,16 +1,13 @@
-[gd_scene load_steps=42 format=3 uid="uid://bfi28jisx373r"]
+[gd_scene load_steps=37 format=3 uid="uid://bfi28jisx373r"]
 
-[ext_resource type="Texture2D" uid="uid://b5rvn44r1a7t7" path="res://assets/backgrounds/barcounter_background.PNG" id="1_6y1xs"]
-[ext_resource type="Texture2D" uid="uid://br3355xqnwqvm" path="res://assets/backgrounds/day_lighting/day_2_screen_5percent.PNG" id="1_c1l4j"]
-[ext_resource type="Texture2D" uid="uid://ch3867lm2ofpv" path="res://assets/backgrounds/barcounter.PNG" id="2_44wrj"]
+[ext_resource type="Texture2D" uid="uid://dedpkyw0mcy3g" path="res://assets/backgrounds/bar/barcounter_background.PNG" id="1_umghd"]
+[ext_resource type="Texture2D" uid="uid://chh6pf4uh5fvt" path="res://assets/backgrounds/bar/barcounter.PNG" id="2_ngcb1"]
 [ext_resource type="Texture2D" uid="uid://c21da2taq0qp0" path="res://assets/ui_dialogue_menus/dialogue_box.PNG" id="3_e3c27"]
-[ext_resource type="Texture2D" uid="uid://bqcv5atrwjce1" path="res://assets/backgrounds/evening_lighting/evening_2_lightercolor_5percent.PNG" id="5_8es8a"]
-[ext_resource type="Texture2D" uid="uid://bhmaeuhsjsy8b" path="res://assets/backgrounds/bar/lighting/day.PNG" id="5_lfk6v"]
-[ext_resource type="Texture2D" uid="uid://df83dth21ahgl" path="res://assets/backgrounds/border.PNG" id="6_jg7i6"]
-[ext_resource type="Texture2D" uid="uid://b1mtvttqu3bv4" path="res://assets/backgrounds/bar/lighting/evening.PNG" id="7_cngrt"]
-[ext_resource type="Texture2D" uid="uid://q61ips01hi66" path="res://assets/backgrounds/night_lighting/night_2_lightercolor_25percent.PNG" id="8_mnb7x"]
-[ext_resource type="Texture2D" uid="uid://ic3xbncafvhm" path="res://assets/backgrounds/bar/lighting/night.PNG" id="8_u11fj"]
-[ext_resource type="Texture2D" uid="uid://n5p60ynjnr5m" path="res://assets/backgrounds/night_lighting/night_3_multiply_25percent.PNG" id="9_mi71u"]
+[ext_resource type="Texture2D" uid="uid://bhmaeuhsjsy8b" path="res://assets/backgrounds/bar/lighting/day.PNG" id="4_syii6"]
+[ext_resource type="Texture2D" uid="uid://b1mtvttqu3bv4" path="res://assets/backgrounds/bar/lighting/evening.PNG" id="5_041gx"]
+[ext_resource type="Texture2D" uid="uid://ic3xbncafvhm" path="res://assets/backgrounds/bar/lighting/night.PNG" id="6_51c3m"]
+[ext_resource type="Texture2D" uid="uid://sd672jsft4yi" path="res://assets/backgrounds/night_lighting/night_3_multiply_25percent - Copy.PNG" id="7_t5i1t"]
+[ext_resource type="Texture2D" uid="uid://dxyco5vjklygk" path="res://assets/backgrounds/bar/border.PNG" id="8_k1gxd"]
 [ext_resource type="Script" path="res://scenes/background/queue_manager.gd" id="11_o8uod"]
 [ext_resource type="Script" path="res://scenes/background/button.gd" id="11_ow2to"]
 [ext_resource type="Script" path="res://scenes/background/button_2.gd" id="11_u452s"]
@@ -21,21 +18,13 @@
 [ext_resource type="Resource" path="res://components/crafting/items/ingredients/tankard_with_firepepper_ale.tres" id="18_5nr2g"]
 [ext_resource type="Resource" path="res://components/crafting/items/ingredients/beer.tres" id="19_pr4mh"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lyaor"]
-blend_mode = 1
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yeavu"]
 blend_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fps8c"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jtq3l"]
 blend_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wrbg0"]
-blend_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xsrgc"]
 blend_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_yusbq"]
@@ -45,142 +34,6 @@ colors = PackedColorArray(1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8cqub"]
 gradient = SubResource("Gradient_yusbq")
 fill_from = Vector2(0.474359, 0.179487)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s54h0"]
-blend_mode = 3
-
-[sub_resource type="Animation" id="Animation_vmcy7"]
-resource_name = "DayTransition"
-length = 30.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Night/Darkness:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(13.7667, 16.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.319)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Night/BlueLight:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(13.7333, 16.2333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.36)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Day:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.133333, 1.2, 4.76667, 6.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Evening:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(6.3, 7.8, 12.5333, 13.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Night:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(13.8333, 16.5667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_4uqwe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Night/Darkness:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.319)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Night/BlueLight:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.36)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Day:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Evening:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Night:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8nb3"]
-_data = {
-"DayTransition": SubResource("Animation_vmcy7"),
-"RESET": SubResource("Animation_4uqwe")
-}
 
 [sub_resource type="Resource" id="Resource_tv04g"]
 script = ExtResource("13_fgn81")
@@ -335,6 +188,269 @@ _data = {
 "dialogue_disappear": SubResource("Animation_kef48")
 }
 
+[sub_resource type="Animation" id="Animation_u7td1"]
+resource_name = "to_day"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Day/DayAdd:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.686275)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Evening/EveningAdd:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Night/NightAdd:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Night/Darkness:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Night/BlueLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_phdab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Day/DayAdd:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Evening/EveningAdd:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Night/NightAdd:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Night/Darkness:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Night/BlueLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0jtva"]
+resource_name = "to_evening"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Day/DayAdd:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 2.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.686275), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Evening/EveningAdd:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.796078)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Night/NightAdd:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Night/Darkness:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Night/BlueLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_77vw6"]
+resource_name = "to_night"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Day/DayAdd:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Evening/EveningAdd:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.796078), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Night/NightAdd:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.745098)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Night/Darkness:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Night/BlueLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rsfx8"]
+_data = {
+"RESET": SubResource("Animation_phdab"),
+"to_day": SubResource("Animation_u7td1"),
+"to_evening": SubResource("Animation_0jtva"),
+"to_night": SubResource("Animation_77vw6")
+}
+
 [node name="BackgroundScene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -350,7 +466,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_6y1xs")
+texture = ExtResource("1_umghd")
 expand_mode = 2
 stretch_mode = 4
 
@@ -368,7 +484,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_44wrj")
+texture = ExtResource("2_ngcb1")
 expand_mode = 2
 stretch_mode = 4
 
@@ -394,7 +510,6 @@ bbcode_enabled = true
 text = "gageage"
 
 [node name="Day" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -403,21 +518,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="DayScreen" type="TextureRect" parent="Day"]
-modulate = Color(1, 1, 1, 0.05)
-material = SubResource("CanvasItemMaterial_lyaor")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_c1l4j")
-expand_mode = 2
-stretch_mode = 4
-
 [node name="DayAdd" type="TextureRect" parent="Day"]
-modulate = Color(1, 1, 1, 0.6)
+modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_yeavu")
 layout_mode = 1
 anchors_preset = 15
@@ -425,12 +527,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_lfk6v")
+texture = ExtResource("4_syii6")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Evening" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -439,21 +540,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="EveningLighterColor" type="TextureRect" parent="Evening"]
-modulate = Color(1, 1, 1, 0.05)
-material = SubResource("CanvasItemMaterial_fps8c")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_8es8a")
-expand_mode = 2
-stretch_mode = 4
-
 [node name="EveningAdd" type="TextureRect" parent="Evening"]
-modulate = Color(1, 1, 1, 0.6)
+modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_jtq3l")
 layout_mode = 1
 anchors_preset = 15
@@ -461,7 +549,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_cngrt")
+texture = ExtResource("5_041gx")
 expand_mode = 2
 stretch_mode = 4
 
@@ -475,7 +563,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="NightAdd" type="TextureRect" parent="Night"]
-modulate = Color(1, 1, 1, 0.85)
+modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_wrbg0")
 layout_mode = 1
 anchors_preset = 15
@@ -483,48 +571,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_u11fj")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="NightLighterColor" type="TextureRect" parent="Night"]
-modulate = Color(1, 1, 1, 0.25)
-material = SubResource("CanvasItemMaterial_xsrgc")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_mnb7x")
+texture = ExtResource("6_51c3m")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Darkness" type="PointLight2D" parent="Night"]
 position = Vector2(640, 360)
 scale = Vector2(20, 11.25)
-color = Color(1, 1, 1, 0.319)
+color = Color(1, 1, 1, 0.188235)
+energy = 0.0
 blend_mode = 1
 texture = SubResource("GradientTexture2D_8cqub")
 
 [node name="BlueLight" type="PointLight2D" parent="Night"]
 position = Vector2(640, 360)
 scale = Vector2(0.333333, 0.333333)
-color = Color(1, 1, 1, 0.36)
-texture = ExtResource("9_mi71u")
-
-[node name="NightMultiply" type="TextureRect" parent="Night"]
-visible = false
-material = SubResource("CanvasItemMaterial_s54h0")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_mi71u")
-expand_mode = 2
-stretch_mode = 4
+energy = 0.0
+texture = ExtResource("7_t5i1t")
 
 [node name="Border" type="TextureRect" parent="."]
 layout_mode = 1
@@ -533,14 +596,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_jg7i6")
+texture = ExtResource("8_k1gxd")
 expand_mode = 2
 stretch_mode = 4
-
-[node name="TimeTransitions" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_a8nb3")
-}
 
 [node name="Debug" type="CanvasLayer" parent="."]
 
@@ -565,22 +623,18 @@ script = ExtResource("11_ow2to")
 item = SubResource("Resource_tv04g")
 
 [node name="Button2" type="Button" parent="Debug"]
-visible = false
-offset_left = 1106.0
-offset_top = 85.0
-offset_right = 1253.0
-offset_bottom = 116.0
-text = "start queue signal"
+offset_left = 1040.0
+offset_top = 34.0
+offset_right = 1229.0
+offset_bottom = 65.0
+text = "start queue with 2 npcs"
 script = ExtResource("11_u452s")
 
 [node name="QueueManager" type="Node" parent="."]
-unique_name_in_owner = true
 script = ExtResource("11_o8uod")
-npc_amount = 3
 available_dishes = Array[ExtResource("13_fgn81")]([ExtResource("17_b7n4p"), ExtResource("18_5nr2g"), ExtResource("19_pr4mh")])
 
 [node name="GameManager" type="Control" parent="."]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -593,9 +647,9 @@ script = ExtResource("12_wtpik")
 [node name="Label" type="Label" parent="GameManager"]
 layout_mode = 0
 offset_left = 26.0
-offset_top = 10.0
-offset_right = 215.0
-offset_bottom = 33.0
+offset_top = -178.0
+offset_right = 217.0
+offset_bottom = -155.0
 text = "Remaining customers: -1"
 
 [node name="NpcAnimation" type="AnimationPlayer" parent="."]
@@ -607,6 +661,12 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_w5vnp")
 }
+
+[node name="TimeTransitions" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rsfx8")
+}
+autoplay = "RESET"
 
 [connection signal="pressed" from="Debug/Button" to="Debug/Button" method="_on_pressed"]
 [connection signal="pressed" from="Debug/Button3" to="Debug/Button3" method="_on_pressed"]

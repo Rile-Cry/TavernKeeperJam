@@ -34,6 +34,8 @@ SettingsManager="*res://autoload/persistence/settings/settings_manager.gd"
 GlobalDayNightClock="*res://autoload/general/global_day_night_clock.gd"
 CraftManager="*res://autoload/persistence/crafting/craft_manager.gd"
 EventBus="*res://autoload/event_bus/event_bus.gd"
+GlobalVar="*res://autoload/global_var/global_var.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -90,6 +92,10 @@ window/size/viewport_height=720
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [file_customization]
 

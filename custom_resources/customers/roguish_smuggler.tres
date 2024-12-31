@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CustomerResource" load_steps=2 format=3 uid="uid://djagyh43r2snq"]
+
+[ext_resource type="Script" path="res://custom_resources/customers/customer.gd" id="1_riwy0"]
+
+[resource]
+script = ExtResource("1_riwy0")
+name = "Roguish Smuggler"
+corresponding_number_in_array = 3

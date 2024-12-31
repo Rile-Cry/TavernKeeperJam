@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CustomerResource" load_steps=2 format=3 uid="uid://cmmjng418sqb5"]
+
+[ext_resource type="Script" path="res://custom_resources/customers/customer.gd" id="1_fgwfs"]
+
+[resource]
+script = ExtResource("1_fgwfs")
+name = "Wandering drunkard"
+corresponding_number_in_array = 2

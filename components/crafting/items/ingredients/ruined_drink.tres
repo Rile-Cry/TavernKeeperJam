@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://bqwxwwaa5w8bj"]
+[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://ckcvm3bpfmyea"]
 
 [ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_4i434"]
 
@@ -6,7 +6,7 @@
 script = ExtResource("1_4i434")
 ingredient_name = "Ruined drink"
 cost = 0
-quality = 0
+quality = -30
 description = ""
 processing = Array[int]([])
 fame_required = 0

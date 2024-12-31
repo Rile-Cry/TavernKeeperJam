@@ -7,6 +7,7 @@ const LIGHT_BLINK = preload("res://shaders/crafting_game/brigthen.tres")
 const LIGHT_CONST = preload("res://shaders/crafting_game/light_up.tres")
 @export var texture_node : TextureRect
 var mouse_inside : bool = false
+@export var turn_off : bool = false
 
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)

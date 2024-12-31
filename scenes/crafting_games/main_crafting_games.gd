@@ -23,12 +23,21 @@ extends Control
 @onready var wineglass_shelf: TextureRect = $Objects/WineglassShelf
 @onready var containers : Array[TextureRect] = [glass_shelf,tankard_shelf, wineglass_shelf ]
 
+
 #potion components
 @onready var firepepperseed_whole: TextureRect = $Items/PotionComponent/FirepepperseedWhole
 @onready var fortiflower_whole: TextureRect = $Items/PotionComponent/FortiflowerWhole
 @onready var galegrass_whole: TextureRect = $Items/PotionComponent/GalegrassWhole
 @onready var hartroot_whole: TextureRect = $Items/PotionComponent/HartrootWhole
 @onready var potion_components : Array[TextureRect] = [firepepperseed_whole, fortiflower_whole,galegrass_whole, hartroot_whole]
+
+#potion component dict
+@onready var potion_component_dict = {
+	firepepperseed:firepepperseed_whole,
+	fortiflower:fortiflower_whole,
+	galegrass:galegrass_whole,
+	hartroot:hartroot_whole,
+}
 
 #recipe
 @onready var crafting_recipe: Label = $CraftingRecipe/CraftingRecipe
@@ -153,10 +162,14 @@ func _on_dropdown_menu_trash_pressed() -> void:
 func trash_item()->void:
 	for container in containers:
 		container.visible = true
-	for potion_component in potion_components:
-		potion_component.visible = true
-	for potion_component_button in potion_component_buttons:
-		potion_component_button.disabled = false
+#	for potion_component in potion_components:
+#		potion_component.visible = true
+#	for potion_component_button in potion_component_buttons:
+#		potion_component_button.disabled = false
+	
+	turn_off_potion_component()
+	
+	
 	current_ingredients = []
 	container_selected = false
 	liquid.texture = null
@@ -357,6 +370,20 @@ func create_drink()->void:
 
 func _ready() -> void:
 	EventBus.order_item.connect(on_item_order)
+	turn_off_potion_component()
+	
+
+func turn_off_potion_component()->void:
+	for potion_button in potion_component_dict:
+		if potion_button.turn_off == true:
+			potion_component_dict[potion_button].visible = false
+			potion_button.disabled = true
+		else:
+			potion_component_dict[potion_button].visible = true
+			potion_button.disabled = false
+	
+
+
 
 func on_item_order(item: TavernItem) ->void:
 	needed_drink = item

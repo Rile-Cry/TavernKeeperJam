@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_urkh2")
-ingredient_name = "Strength wine"
+ingredient_name = "Swiftness wine"
 cost = 0
 quality = 0
 description = ""

@@ -50,11 +50,13 @@ var remaining_customers : int
 var current_customer : Customer
 
 func _ready() -> void:
+	GlobalGameEvents.queue_manager_ready.emit()
 	if GlobalVar.fame >= 8:
 		npc_array.append(ROGUISH_SMUGGLER)
 
 func start_queue(needed_npc_amount : int)->void:
 	remaining_customers = needed_npc_amount
+	print("Starting queue with %s customers" % needed_npc_amount)
 	create_customer()
 
 

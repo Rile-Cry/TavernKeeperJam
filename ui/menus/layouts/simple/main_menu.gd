@@ -16,6 +16,7 @@ extends CanvasLayer
 	
 func _ready() -> void:
 	version_label.text = "v%s" % ProjectSettings.get_setting("application/config/version")
+	MusicManager.play_music("menu")
 	
 	start_game_button.focus_neighbor_top = exit_game_button.get_path()
 	exit_game_button.focus_neighbor_bottom = start_game_button.get_path()
@@ -32,6 +33,7 @@ func _on_start_game_button_pressed() -> void:
 
 func _on_enter_button_pressed() -> void:
 	GameGlobals.set_player_name(player_name.text)
+	MusicManager.stop_music()
 	SceneTransitionManager.transition_to_scene(next_scene)
 
 func on_exit_game_button_pressed() -> void:

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://ckcvm3bpfmyea"]
+[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://bj4ic6lnfwh4s"]
 
 [ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_4i434"]
 

@@ -1,12 +1,15 @@
 if {TUTORIAL.ThirdCustomer} == true:
 elif {TUTORIAL.SecondCustomer} == true:
 elif {TUTORIAL.FirstCustomer} == true:
+[background arg="res://assets/backgrounds/prairie_edit.jpg" fade="0.0"]
+do MusicManager.play_music("day_0_and_6_dream")
 [i]Water trickles over rounded stones. Thistle buds poke up through the mud.[/i]
 [i]Voices, soft as the murmuring creek. You strain your ears, but they're gone as quickly as they came.[/i]
 [i]Clinking glass. The roar of a fire as it feeds from a bellows.[/i]
 [i]A strong, earthy scent. The heat from the flames intensifies. You can feel it on your face -- the glow and the warmth at once.[/i]
 [i]It's a pleasant feeling -- comforting, beckoning you closer.[/i]
 [i]Then it starts to burn.[/i]
+[background arg="res://assets/backgrounds/bedroom_edit.PNG" fade="0.0"]
 player: ... Where am I?
 player: Oh. I'd nearly forgotten.
 player: It's early. But I ought to find Old Lady Aga. She said she'd be expecting me downstairs.
@@ -21,6 +24,8 @@ label FirstChoice
 	jump FirstChoice
 - Get dressed and go downstairs
 [background arg="res://assets/backgrounds/bar/barcounter_background.PNG" fade="0.0"]
+[clear time="1.0"]
+[style name="tk_style"]
 join old_lady_aga (talk) center
 old_lady_aga: Ah, awake? Good. See that you continue to be punctual. I would rather not have to fetch you myself. My old knees can only take me up those stairs so many times.
 old_lady_aga: We open at noon, so there's no time to waste. Today I will show you how to tend the bar, and tomorrow I expect you to manage on your own.
@@ -48,6 +53,7 @@ label AgaQuestions
 old_lady_aga: About time. Well, go on then. Step behind the counter.
 - Go through tutorial
 	[background fade="0.0"]
+	do MusicManager.play_music("tutorial")
 	old_lady_aga: This is where you'll meet each patron that comes up to the bar. You will take their order - - and mind the details.
 	[signal arg="move_to_counter"]
 	old_lady_aga: This is where you will pour each drink. First, you'll take the appropriate container off the top shelf. The tankard is for ale, beer, and cider. The short glass is for gin and other liquor. The wineglass is for wine.

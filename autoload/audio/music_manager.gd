@@ -9,7 +9,15 @@ signal finished_stream(audio_stream_player: AudioStreamPlayer, old_stream: Audio
 const VolumeDBInaudible: float = -80.0
 
 ## Dictionary<string, AudioStream>
-var music_bank: Dictionary = {}
+var music_bank: Dictionary = {
+	"day_0_and_6_dream": preload("res://assets/audio/music/music_day_0_and_6_dream.wav"),
+	"day_1_dream": preload("res://assets/audio/music/music_day_1_dream.wav"),
+	"day_2_dream": preload("res://assets/audio/music/music_day_2_dream.wav"),
+	"day_7_dream": preload("res://assets/audio/music/music_day_7_dream.wav"),
+	"gameplay": preload("res://assets/audio/music/music_gameplay.wav"),
+	"menu": preload("res://assets/audio/music/music_menu.wav"),
+	"tutorial": preload("res://assets/audio/music/music_tutorial.wav"),
+}
 var main_audio_stream_player: AudioStreamPlayer
 var secondary_audio_stream_player: AudioStreamPlayer
 var current_audio_stream_player: AudioStreamPlayer
@@ -17,10 +25,8 @@ var current_audio_stream_player: AudioStreamPlayer
 var crossfade_time: float = 2.0
 var crossfade_tween: Tween
 
-
 func _ready():
 	_create_audio_stream_players()
-	
 
 func play_music(stream_name: String, crossfade: bool = true, crossfading_time: float = crossfade_time):
 	if music_bank.has(stream_name) and not _crossfade_tween_is_running():
@@ -71,6 +77,10 @@ func add_stream_to_music_bank(stream_name: String, stream: AudioStream):
 	added_music_to_bank.emit(stream_name, stream)
 	
 
+func stop_music() -> void:
+	main_audio_stream_player.stop()
+
+
 func remove_stream_from_music_bank(stream_name: String):
 	if music_bank.has(stream_name):
 		music_bank.erase(stream_name)
@@ -103,6 +113,8 @@ func _create_audio_stream_players():
 
 
 func _crossfade_tween_is_running() -> bool:
+	if crossfade_tween == null:
+		return false
 	return crossfade_tween == null or (crossfade_tween and crossfade_tween.is_running())
 
 

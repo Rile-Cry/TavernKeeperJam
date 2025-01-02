@@ -23,6 +23,7 @@ func _on_mouse_exited() -> void:
 
 func _on_pressed() -> void:
 	texture_node.material = LIGHT_CONST
+	release_focus()
 	await get_tree().create_timer(0.2).timeout
 	if mouse_inside:
 		texture_node.material = LIGHT_BLINK

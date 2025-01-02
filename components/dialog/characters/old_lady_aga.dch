@@ -12,12 +12,12 @@
 "pitch_base": 1.0,
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
-"sound_path": "res://assets/audio/voices/aga_blip.wav",
+"sound_path": "",
 "volume_base": 0.0,
 "volume_variance": 0.0
 }
 },
-"style": ""
+"style": "tk_style"
 },
 "default_portrait": "frown",
 "description": "Tavern owner, an old woman who once founded the tavern through passion alone, but has since let it fall into disrepair as she's aged. Tired, cynical, has been cheated before and won't let it happen again.",

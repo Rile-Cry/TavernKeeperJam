@@ -13,7 +13,8 @@ var _stock := {
 }
 
 var event_check := {
-	"tutorial" = false
+	"tutorial" = false,
+	"day_2" = false,
 }
 #endregion
 

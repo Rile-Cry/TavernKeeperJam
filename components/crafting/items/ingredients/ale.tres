@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://rhgcnfka23sm"]
+[gd_resource type="Resource" script_class="TavernItem" load_steps=2 format=3 uid="uid://yyrb7luf4gyw"]
 
 [ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_fb8gk"]
 
 [resource]
 script = ExtResource("1_fb8gk")
 ingredient_name = "Ale"
-cost = 0
+cost = 5
+sell_cost = 10
 quality = 0
 description = ""
 processing = Array[int]([])
 fame_required = 0
+fame_given = 1

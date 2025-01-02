@@ -2,9 +2,6 @@ class_name GameManager
 extends Control
 @onready var label: Label = $Label
 @onready var queue_manager: QueueManager = $"../QueueManager"
-@onready var dialogue_box: TextureRect = $"../DialogueBox"
-@onready var rich_text_label: RichTextLabel = $"../DialogueBox/RichTextLabel"
-@onready var dialogue_animation: AnimationPlayer = $"../DialogueAnimation"
 @onready var time_transitions: AnimationPlayer = $"../TimeTransitions"
 
 var queue_started :bool = false
@@ -28,16 +25,15 @@ func on_start_queue(npc_amount : int)->void:
 #		pass
 
 
-func on_item_order(item: TavernItem, text : String)->void:
+func on_item_order(item: TavernItem, text : Array[String])->void:
 	#print("ordered item: " + str(item.ingredient_name))
-	dialogue_animation.play("dialogue_appear")
-	rich_text_label.text = text 
-	
-	
-	
-	
 	
 	ordered_item = item
+	Dialogic.VAR.CustomerName = text[0]
+	Dialogic.VAR.CustomerString = text[1]
+	Dialogic.start("customer")
+	await Dialogic.timeline_ended
+	GlobalGameEvents.tutorial_counter.emit()
 	
 	update_label()
 	
@@ -46,7 +42,6 @@ func on_item_order(item: TavernItem, text : String)->void:
 	pass
 
 func on_item_given(item: TavernItem) ->void:
-	dialogue_animation.play("dialogue_disappear")
 	if ordered_item.ingredient_name == item.ingredient_name:
 		#print("items match so proceeding to next customer")
 		queue_manager.continue_queue()

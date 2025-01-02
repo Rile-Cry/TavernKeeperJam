@@ -11,6 +11,8 @@ extends Button
 ## Using a different node may allow using rich text effects; they are
 ## not supported on buttons at this point.
 
+@export var focused_image : Texture2D
+@export var pressed_image : Texture2D
 
 ## Used to identify what choices to put on. If you leave it at -1, choices will be distributed automatically.
 @export var choice_index: int = -1
@@ -28,7 +30,20 @@ extends Button
 func _ready() -> void:
 	add_to_group('dialogic_choice_button')
 	shortcut_in_tooltip = false
+	connect("focus_entered", _on_focus_entered)
+	connect("focus_exited", _on_focus_exited)
+	connect("pressed", _on_pressed)
 	hide()
+
+
+func _on_focus_entered() -> void:
+	icon = focused_image
+
+func _on_focus_exited() -> void:
+	icon = null
+
+func _on_pressed() -> void:
+	icon = pressed_image
 
 
 func _load_info(choice_info: Dictionary) -> void:

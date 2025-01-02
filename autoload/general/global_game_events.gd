@@ -1,18 +1,17 @@
 extends Node
 
-signal queue_manager_ready
+signal new_day
 
 signal tutorial_bar
 signal tutorial_counter
 signal tutorial_start
+signal tutorial_check
 
-#region Narrative
-#signal dialogues_requested(dialogue_blocks: Array[DialogueDisplayer.DialogueBlock])
-#signal dialogue_display_started(dialogue: DialogueDisplayer.DialogueBlock)
-#signal dialogue_display_finished(dialogue: DialogueDisplayer.DialogueBlock)
-#signal dialogue_blocks_started_to_display(dialogue_blocks: Array[DialogueDisplayer.DialogueBlock])
-#signal dialogue_blocks_finished_to_display()
-#endregion
+signal customer_left
+
+func end_day() -> void:
+	new_day.emit()
+
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal_called)

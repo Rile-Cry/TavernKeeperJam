@@ -1,6 +1,9 @@
-if {TUTORIAL.ThirdCustomer} == true:
+elif {TUTORIAL.ThirdCustomer} == true:
+	jump ThirdCustomer
 elif {TUTORIAL.SecondCustomer} == true:
+	jump SecondCustomer
 elif {TUTORIAL.FirstCustomer} == true:
+	jump FirstCustomer
 [background arg="res://assets/backgrounds/prairie_edit.jpg" fade="0.0"]
 do MusicManager.play_music("day_0_and_6_dream")
 [i]Water trickles over rounded stones. Thistle buds poke up through the mud.[/i]
@@ -26,7 +29,7 @@ label FirstChoice
 [background arg="res://assets/backgrounds/bar/barcounter_background.PNG" fade="0.0"]
 [clear time="1.0"]
 [style name="tk_style"]
-join old_lady_aga (talk) center
+join old_lady_aga (talk) left
 old_lady_aga: Ah, awake? Good. See that you continue to be punctual. I would rather not have to fetch you myself. My old knees can only take me up those stairs so many times.
 old_lady_aga: We open at noon, so there's no time to waste. Today I will show you how to tend the bar, and tomorrow I expect you to manage on your own.
 old_lady_aga: Well? You look as if you have a question.
@@ -65,32 +68,29 @@ old_lady_aga: About time. Well, go on then. Step behind the counter.
 - Skip tutorial
 [end_timeline]
 label FirstCustomer
-join old_lady_aga center
+join old_lady_aga left
 if {TUTORIAL.Quality} == true:
 	old_lady_aga: Hm. Impressive. Do it again.
 else:
 	old_lady_aga: I expect better than this. Try again.
 [end_timeline]
 label SecondCustomer
-join old_lady_aga center
+join old_lady_aga left
 if {TUTORIAL.Quality} == true:
 	old_lady_aga: Well done. Once more, now.
 else:
 	old_lady_aga: I expect better than this. Once more, now.
 [end_timeline]
-label ThidCustomerArrive
-join old_lady_aga center
-old_lady_aga: That's all the customers we'll get for today.
-[end_timeline]
 label ThirdCustomer
-join old_lady_aga center
+join old_lady_aga left
+old_lady_aga: That's all the customers we'll get for today.
 old_lady_aga: I supposed you're ready now. I can't say I have high hopes . . . but you will be sufficient.
 player: . . . Only Sufficient?
 old_lady_aga: Heh. There's time yet to prove me wrong.
 old_lady_aga: Off with you, now. Don't be late tomorrow morning.
 player: Old Lady Aga? How did you manage this on your own?
 old_lady_aga: Hah. Aren't you full of questions?
-old_lady_aga: Goodnight, {Var.PlayerName}. Remember, bright and early tomorrow.
+old_lady_aga: Goodnight, {PlayerName}. Remember, bright and early tomorrow.
 leave old_lady_aga
 player: . . .
 [end_timeline]

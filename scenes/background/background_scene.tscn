@@ -1,8 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://bfi28jisx373r"]
+[gd_scene load_steps=32 format=3 uid="uid://bfi28jisx373r"]
 
 [ext_resource type="Texture2D" uid="uid://dedpkyw0mcy3g" path="res://assets/backgrounds/bar/barcounter_background.PNG" id="1_umghd"]
 [ext_resource type="Texture2D" uid="uid://chh6pf4uh5fvt" path="res://assets/backgrounds/bar/barcounter.PNG" id="2_ngcb1"]
-[ext_resource type="Texture2D" uid="uid://c21da2taq0qp0" path="res://assets/ui_dialogue_menus/dialogue_box.PNG" id="3_e3c27"]
 [ext_resource type="Texture2D" uid="uid://bhmaeuhsjsy8b" path="res://assets/backgrounds/bar/lighting/day.PNG" id="4_syii6"]
 [ext_resource type="Texture2D" uid="uid://b1mtvttqu3bv4" path="res://assets/backgrounds/bar/lighting/evening.PNG" id="5_041gx"]
 [ext_resource type="Texture2D" uid="uid://ic3xbncafvhm" path="res://assets/backgrounds/bar/lighting/night.PNG" id="6_51c3m"]
@@ -16,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://cior4lalskl15" path="res://components/crafting/items/chopped_items/chopped_hartroot.tres" id="14_hw4tw"]
 [ext_resource type="Resource" path="res://components/crafting/items/ingredients/wine.tres" id="17_b7n4p"]
 [ext_resource type="Resource" path="res://components/crafting/items/ingredients/tankard_with_firepepper_ale.tres" id="18_5nr2g"]
-[ext_resource type="Resource" path="res://components/crafting/items/ingredients/beer.tres" id="19_pr4mh"]
+[ext_resource type="Resource" uid="uid://q2gg7xb4jlck" path="res://components/crafting/items/ingredients/beer.tres" id="19_pr4mh"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yeavu"]
 blend_mode = 1
@@ -39,10 +38,12 @@ fill_from = Vector2(0.474359, 0.179487)
 script = ExtResource("13_fgn81")
 ingredient_name = "Banana"
 cost = 0
+sell_cost = 0
 quality = 0
 description = ""
 processing = Array[int]([])
 fame_required = 0
+fame_given = 0
 
 [sub_resource type="Animation" id="Animation_jhmex"]
 length = 0.001
@@ -96,96 +97,6 @@ _data = {
 "RESET": SubResource("Animation_jhmex"),
 "person_appear": SubResource("Animation_gf2g7"),
 "person_disappear": SubResource("Animation_w17k1")
-}
-
-[sub_resource type="Animation" id="Animation_ed4w4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBox:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DialogueBox:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_yp8kc"]
-resource_name = "dialogue_appear"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBox:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DialogueBox:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.99, 1), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_kef48"]
-resource_name = "dialogue_disappear"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBox:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DialogueBox:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.99, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w5vnp"]
-_data = {
-"RESET": SubResource("Animation_ed4w4"),
-"dialogue_appear": SubResource("Animation_yp8kc"),
-"dialogue_disappear": SubResource("Animation_kef48")
 }
 
 [sub_resource type="Animation" id="Animation_phdab"]
@@ -488,27 +399,6 @@ texture = ExtResource("2_ngcb1")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="DialogueBox" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_e3c27")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
-layout_mode = 0
-offset_left = 451.0
-offset_top = 177.0
-offset_right = 1077.0
-offset_bottom = 291.0
-bbcode_enabled = true
-text = "gageage"
-
 [node name="Day" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -656,11 +546,6 @@ text = "Remaining customers: -1"
 [node name="NpcAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ia63d")
-}
-
-[node name="DialogueAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_w5vnp")
 }
 
 [node name="TimeTransitions" type="AnimationPlayer" parent="."]

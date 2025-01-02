@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_acswq"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_npbi0"]
-[ext_resource type="PackedScene" uid="uid://ddnrhnr6u5w2" path="res://components/dialog/styles/TKStyle/5Portraits/custom_5_portraits.tscn" id="3_xp7jd"]
+[ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="3_vibn7"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="4_yna6c"]
 [ext_resource type="PackedScene" uid="uid://k2ktijcy8uns" path="res://components/dialog/styles/TKStyle/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="5_flqnu"]
 [ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="6_dj785"]
@@ -27,7 +27,7 @@ overrides = {}
 
 [sub_resource type="Resource" id="Resource_g8s11"]
 script = ExtResource("1_acswq")
-scene = ExtResource("3_xp7jd")
+scene = ExtResource("3_vibn7")
 overrides = {}
 
 [sub_resource type="Resource" id="Resource_8xqnp"]
@@ -57,7 +57,12 @@ overrides = {}
 script = ExtResource("1_acswq")
 scene = ExtResource("7_8dnhn")
 overrides = {
-"boxes_stylebox_normal": "\"res://components/dialog/styles/TKStyle/CenteredChoices/chioce_box.tres\""
+"boxes_stylebox_disabled": "\"res://components/dialog/styles/TKStyle/CenteredChoices/choice_box.tres\"",
+"boxes_stylebox_focused": "\"res://components/dialog/styles/TKStyle/CenteredChoices/choice_box.tres\"",
+"boxes_stylebox_hovered": "\"res://components/dialog/styles/TKStyle/CenteredChoices/choice_box.tres\"",
+"boxes_stylebox_normal": "\"res://components/dialog/styles/TKStyle/CenteredChoices/choice_box.tres\"",
+"boxes_stylebox_pressed": "\"res://components/dialog/styles/TKStyle/CenteredChoices/choice_box.tres\"",
+"font_size_custom": "20.0"
 }
 
 [sub_resource type="Resource" id="Resource_8vxmv"]
@@ -87,4 +92,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_acswq")]([])
-metadata/_latest_layer = ""
+metadata/_latest_layer = "15"

@@ -8,9 +8,11 @@ extends CanvasLayer
 @onready var enter_button := $MainMenu/StartSettings/MarginContainer/VBoxContainer/EnterButton
 @onready var settings_button: Button = %SettingsButton
 @onready var credits_button: Button = %CreditsButton
+@onready var credits_back_button: Button = $MainMenu/Credits/MarginContainer/VBoxContainer/Back
 @onready var exit_game_button: Button = %ExitGameButton
 
 @onready var start_container := $MainMenu/StartSettings
+@onready var credits_container := $MainMenu/Credits
 @onready var player_name := $MainMenu/StartSettings/MarginContainer/VBoxContainer/HBoxContainer/PlayerName
 
 	
@@ -24,6 +26,8 @@ func _ready() -> void:
 	
 	start_game_button.pressed.connect(_on_start_game_button_pressed)
 	enter_button.pressed.connect(_on_enter_button_pressed)
+	credits_button.pressed.connect(_on_credits_button_pressed)
+	credits_back_button.pressed.connect(_on_credits_back_button_pressed)
 	exit_game_button.pressed.connect(on_exit_game_button_pressed)
 
 
@@ -35,6 +39,12 @@ func _on_enter_button_pressed() -> void:
 	GameGlobals.set_player_name(player_name.text)
 	MusicManager.stop_music()
 	SceneTransitionManager.transition_to_scene(next_scene)
+
+func _on_credits_button_pressed() -> void:
+	credits_container.show()
+
+func _on_credits_back_button_pressed() -> void:
+	credits_container.hide()
 
 func on_exit_game_button_pressed() -> void:
 	get_tree().quit()

@@ -9,8 +9,8 @@
 "style": "tk_style"
 },
 "default_portrait": "",
-"description": "Creepy little girl who doesn't speak much at first, comes into the tavern for a hot cider now and then. (Can also come to work at the tavern)",
-"display_name": "Mercy",
+"description": "",
+"display_name": "{CustomerName}",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),

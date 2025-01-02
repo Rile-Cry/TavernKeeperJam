@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0qgbmvagse3c"]
+[gd_scene load_steps=16 format=3 uid="uid://c0qgbmvagse3c"]
 
 [ext_resource type="Script" path="res://scenes/main/gameplay_prototype/gameplay_prototype.gd" id="1_7wee2"]
 [ext_resource type="PackedScene" uid="uid://bfi28jisx373r" path="res://scenes/background/background_scene.tscn" id="1_fk1jj"]
 [ext_resource type="PackedScene" uid="uid://dlij03dqyy1co" path="res://scenes/crafting_games/main_crafting_games.tscn" id="2_1u81s"]
+[ext_resource type="PackedScene" uid="uid://njnpko3svuim" path="res://ui/menus/layouts/tally/tally_menu.tscn" id="2_6yl6n"]
 [ext_resource type="Script" path="res://scenes/main/gameplay_prototype/button.gd" id="3_owlq7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2wf1o"]
@@ -73,6 +74,7 @@ _data = {
 
 [node name="GameplayPrototype" type="Node"]
 script = ExtResource("1_7wee2")
+tally_menu = ExtResource("2_6yl6n")
 
 [node name="BackgroundScene" parent="." instance=ExtResource("1_fk1jj")]
 

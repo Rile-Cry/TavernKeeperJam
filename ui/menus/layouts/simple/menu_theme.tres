@@ -1,5 +1,29 @@
-[gd_resource type="Theme" format=3 uid="uid://cnk8hgklgqfbx"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cnk8hgklgqfbx"]
+
+[ext_resource type="FontFile" uid="uid://bkt7t0u3wobxk" path="res://assets/ui_dialogue_menus/CormorantUnicase-Medium.ttf" id="1_48s4e"]
+[ext_resource type="StyleBox" uid="uid://c4616toae8jqs" path="res://ui/menus/layouts/tally/menu_panel.tres" id="2_75r8d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dth5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0aely"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n5mgl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_stfa0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ving7"]
 
 [resource]
 Button/colors/font_color = Color(0.494118, 0.333333, 0.243137, 1)
 Button/colors/font_focus_color = Color(0.494118, 0.333333, 0.243137, 1)
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_48s4e")
+Button/styles/disabled = SubResource("StyleBoxEmpty_4dth5")
+Button/styles/focus = SubResource("StyleBoxEmpty_0aely")
+Button/styles/hover = SubResource("StyleBoxEmpty_n5mgl")
+Button/styles/normal = SubResource("StyleBoxEmpty_stfa0")
+Button/styles/pressed = SubResource("StyleBoxEmpty_ving7")
+Label/colors/font_color = Color(0.380392, 0.223529, 0.141176, 1)
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_48s4e")
+PanelContainer/styles/panel = ExtResource("2_75r8d")

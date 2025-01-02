@@ -50,9 +50,7 @@ var remaining_customers : int
 var current_customer : Customer
 
 func _ready() -> void:
-	GlobalGameEvents.queue_manager_ready.emit()
-	if GlobalVar.fame >= 8:
-		npc_array.append(ROGUISH_SMUGGLER)
+	GlobalGameEvents.new_day.connect(_on_new_day)
 
 func start_queue(needed_npc_amount : int)->void:
 	remaining_customers = needed_npc_amount
@@ -63,6 +61,7 @@ func start_queue(needed_npc_amount : int)->void:
 func continue_queue()->void:
 	if remaining_customers >1:
 		leave_customer()
+		await GlobalGameEvents.tutorial_check
 		await get_tree().create_timer(1,false).timeout
 		create_customer()
 	else:
@@ -77,7 +76,8 @@ func create_customer()->void:
 	var rand_text :String = ""
 	var rand_npc : CustomerResource= npc_array[ randi_range(0, npc_array.size()-1)]
 	var rand_dish = randi_range(0, available_dishes.size()-1 )
-	var needed_dish
+	var customer : String
+	var needed_dish : TavernItem
 	var needed_text := rand_text
 #	current_customer.character_sprite = npc_texture_array[rand_npc]
 	
@@ -89,6 +89,7 @@ func create_customer()->void:
 	match rand_npc.corresponding_number_in_array:
 		0: # disgruntled farmer
 			
+			customer = "Disgruntled Farmer"
 			if GlobalVar.fame ==0:
 				var farmer_text_fame_0 = [
 					"Gimme a mug of ale. Make it quick. I have to return to my fields.",
@@ -116,6 +117,7 @@ func create_customer()->void:
 			current_customer.character_sprite = npc_texture_array[0]
 		1: # Frazzled Weaver
 			
+			customer = "Frazzled Weaver"
 			if GlobalVar.fame ==0:
 				
 				var text_fame_0 = [
@@ -124,9 +126,8 @@ func create_customer()->void:
 					"I need a beer… Please, no questions. ",
 				]
 				var rand_order = randi_range(0,text_fame_0.size()-1 )
-				needed_text =text_fame_0[rand_order]
+				needed_text = text_fame_0[rand_order]
 				if rand_order ==0:
-					
 					needed_dish = GIN
 				else:
 					needed_dish = BEER
@@ -151,7 +152,7 @@ func create_customer()->void:
 				
 		2: # wandering drunkard
 			
-			
+			customer = "Wandering Drunkard"
 				
 			var text_fame_0 = [
 				"*hic* Gimme a beer.",
@@ -160,10 +161,8 @@ func create_customer()->void:
 			]
 			var rand_order = randi_range(0,text_fame_0.size()-1 )
 			needed_text =text_fame_0[rand_order]
-			if rand_order ==0:
+			if rand_order <= 1:
 				
-				needed_dish = GIN
-			elif rand_order ==1:
 				needed_dish = BEER
 			else:
 				needed_dish = ALE
@@ -174,7 +173,7 @@ func create_customer()->void:
 			
 		3: # roguish smuggler
 			
-			
+			customer = "Roguish Smuggler"
 				
 			var text_fame_0 = [
 				"Quaint little place, this is. I almost don’t believe the rumors. Well, a glass of wine, then. ",
@@ -210,18 +209,30 @@ func create_customer()->void:
 	#print("*customer walks in*")
 	characters.add_child(current_customer)
 	
-	
-	
-	
-	game_manager.on_item_order(needed_dish,needed_text)
+	game_manager.on_item_order(needed_dish, [customer, needed_text])
 	
 	
 	EventBus.order_item.emit(needed_dish)
 	
 
-func leave_customer() ->void:
+func leave_customer() -> void:
 	if current_customer !=null:
 		npc_animation.play("person_disappear")
 		#print("*customer walks away*")
 		current_customer.queue_free()
 	remaining_customers-=1
+	await npc_animation.animation_finished
+	GlobalGameEvents.customer_left.emit()
+
+
+func _on_new_day() -> void:
+	if GameGlobals.get_global_variable("fame") >= 8:
+		npc_array.append(ROGUISH_SMUGGLER)
+	
+	if !GameGlobals.event_check["tutorial"]:
+		start_queue(3)
+	#elif !GameGlobals.event_check["day_2"]:
+	#	start_queue(4)
+	else:
+		var customer_amount : int = GameGlobals.get_global_variable("fame") * 2
+		start_queue(customer_amount)

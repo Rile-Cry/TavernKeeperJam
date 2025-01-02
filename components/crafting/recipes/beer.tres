@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="TavernRecipe" load_steps=5 format=3 uid="uid://d3mo1d357plsf"]
+[gd_resource type="Resource" script_class="TavernRecipe" load_steps=5 format=3 uid="uid://cddusriwfowsb"]
 
 [ext_resource type="Script" path="res://components/crafting/scripts/item_resource.gd" id="1_3nq8a"]
-[ext_resource type="Resource" uid="uid://bo5vtganuh2r7" path="res://components/crafting/items/ingredients/tankard.tres" id="2_7cncc"]
-[ext_resource type="Resource" path="res://components/crafting/items/ingredients/beer.tres" id="3_3rpjt"]
+[ext_resource type="Resource" path="res://components/crafting/items/ingredients/tankard.tres" id="2_7cncc"]
+[ext_resource type="Resource" uid="uid://q2gg7xb4jlck" path="res://components/crafting/items/ingredients/beer.tres" id="3_3rpjt"]
 [ext_resource type="Script" path="res://components/crafting/scripts/recipe_resource.gd" id="4_gsaa5"]
 
 [resource]
